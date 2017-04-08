@@ -1,0 +1,45 @@
+// general spacing
+$pad:       1cm;
+$cell:      10px;
+
+// typography
+$font-style: normal;
+$font-variant: normal;
+$font-weight: normal;
+$font-color: black;
+$font-size: 12pt;
+$line-height: $font-size*1.25;
+$font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !default;
+
+html {
+  font: $font-style $font-variant $font-weight #{$font-size}/#{$line-height} $font-family;
+}
+
+a {
+    color: white;
+    background-color: black;
+    padding: $cell/10 $cell/2;
+
+    &:hover {
+    text-decoration: none;
+    }
+
+}
+
+body {
+    margin: $pad;
+}
+
+div {
+	margin-bottom: $cell * 4;
+}
+
+p, img {
+    margin-top: $cell;
+    margin-bottom: $cell;
+}
+
+img {
+    max-width: 850px;
+    max-height: 850px;
+}
