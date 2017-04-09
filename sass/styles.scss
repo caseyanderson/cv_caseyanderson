@@ -7,14 +7,15 @@ $font-style: normal;
 $font-variant: normal;
 $font-weight: normal;
 $font-color: black;
-$font-size: 9pt;
+$font-size: 10pt;
 $line-height: $font-size*1.5;
 $font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !default;
 
 $box-color: #505050;
+$box-text-color: #fff;
 
 a {
-    color: white;
+    color: $box-text-color;
     background-color: $box-color;
     padding: 1px 4px;
     &:hover {
@@ -28,7 +29,7 @@ body {
 }
 
 .boxed {
-    color: white;
+    color: $box-text-color;
     background-color: $box-color;
         padding: 1px 4px;
 }
