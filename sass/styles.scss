@@ -28,14 +28,13 @@ body {
 .boxed {
     color: white;
     background-color: black;
-        padding: 1px 4px;;
+        padding: 1px 4px;
 }
 
 div {
     margin: $cell *2;
     padding: $cell *2;
     border: dashed 1px black;
-
 }
 
 html {
@@ -45,14 +44,6 @@ html {
 h3, h4 {
     display: inline;
 }
-
-img {
-    margin-top: $cell;
-    margin-bottom: $cell;
-    max-width: 850px;
-    max-height: 850px;
-}
-
 
 p {
     margin-top: $cell;
