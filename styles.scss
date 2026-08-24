@@ -64,3 +64,11 @@ ul.nobullets {
     list-style-type: none;
 }
 
+ul.nobullets.current {
+    margin-bottom: 0;
+}
+
+ul.nobullets.previous {
+    margin-top: $line-height;
+}
+
