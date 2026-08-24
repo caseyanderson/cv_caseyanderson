@@ -1,9 +1,11 @@
-a {
+a,
+a:visited {
   color: #fff;
   background-color: #505050;
   padding: 1px 4px;
 }
-a:hover {
+a:hover,
+a:visited:hover {
   text-decoration: none;
 }
 
