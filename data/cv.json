@@ -1,0 +1,23 @@
+{
+    "sections": [
+        {
+            "id": "education",
+            "title": "Education",
+            "groups": [
+                {
+                    "title": null,
+                    "entries": [
+                        {
+                            "label": "MFA in Experimental Sound Practices",
+                            "details": "California Institute of the Arts, Valencia CA, 2009"
+                        },
+                        {
+                            "label": "BM in Music Composition, Philosophy",
+                            "details": "University of Wisconsin - Eau Claire, Eau Claire WI, 2007"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
