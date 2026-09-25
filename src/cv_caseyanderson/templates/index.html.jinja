@@ -1,0 +1,37 @@
+{% macro render_entry(entry) -%}
+{%- if entry.type == "boxed" -%}
+{{ entry.prefix | default("") }}<span class="boxed">{{ entry.label }}</span>{% if entry.details %}, {{ entry.details }}{% endif %}{{ entry.suffix | default("") }}
+{%- elif entry.type == "link" -%}
+<a href="{{ entry.url }}" target="_blank" rel="noopener">{{ entry.label }}</a>{% if entry.details %} {{ entry.details }}{% endif %}
+{%- elif entry.type == "plain" -%}
+{{ entry.text }}
+{%- endif -%}
+{%- endmacro %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Casey Anderson - Curriculum Vitae</title>
+        <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+
+    <body>
+        {% for section in sections %}
+        <div id="{{ section.id }}">
+            <h2>{{ section.title }}</h2>
+            {% for group in section.groups %}
+                {% if group.title %}
+                <h3>{{ group.title }}</h3>
+                {% endif %}
+                <ul class="{{ group.classes | join(' ') }}">
+                    {% for entry in group.entries %}
+                    <li>{{ render_entry(entry) }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </body>
+</html>

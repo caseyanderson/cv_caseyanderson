@@ -2,12 +2,7 @@
 .venv/
 __pycache__/
 *.py[cod]
-
-# Ignore docs files
-_gh_pages
-_site
-.ruby-version
-styles.css
+.ipynb_checkpoints/
 
 # Numerous always-ignore extensions
 *.diff
@@ -25,18 +20,3 @@ styles.css
 .DS_Store
 ._*
 Thumbs.db
-.cache
-.project
-.settings
-.tmproj
-*.esproj
-nbproject
-.idea
-
-
-# Folders to ignore
-node_modules
-
-# sass
-.sass-cache/
-*.css.map
