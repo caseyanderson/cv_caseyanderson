@@ -38,78 +38,183 @@
         {
             "id": "professional-experience",
             "title": "Professional Experience",
-            "groups": [
+            "entries": [
                 {
-                    "title": "Current",
-                    "classes": [
-                        "nobullets"
+                    "organization": "Meow Wolf",
+                    "role": [
+                        "Show Audio Designer"
                     ],
-                    "entries": [
-                        {
-                            "type": "boxed",
-                            "label": "Meow Wolf",
-                            "details": "Show Audio Designer, Los Angeles CA, September 2025 - present"
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2025,
+                            "month": 9
                         },
-                        {
-                            "type": "boxed",
-                            "label": "Community Solidarity Project",
-                            "details": "Organizer, Member, Los Angeles CA, Summer 2025 - present"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "KAOS Network",
-                            "details": "Organizer, Producer, Designer, Los Angeles CA, Summer 2021 - present"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "a wave (formerly a wave press)",
-                            "details": "Owner, Curator, Producer, Los Angeles CA, January 2016 - present"
-                        }
-                    ]
+                        "end": null
+                    }
                 },
                 {
-                    "title": "Previous",
-                    "classes": [
-                        "nobullets",
-                        "previous"
+                    "organization": "Community Solidarity Project",
+                    "role": [
+                        "Organizer",
+                        "Member"
                     ],
-                    "entries": [
-                        {
-                            "type": "boxed",
-                            "label": "Trade School",
-                            "details": "Co-founder, Curator, Event Producer, Altadena CA, July 2024 - May 2026"
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2025,
+                            "season": "summer"
                         },
-                        {
-                            "type": "boxed",
-                            "label": "Dwarfcraft Devices",
-                            "details": "PCB Designer, 2019 - 2020"
+                        "end": null
+                    }
+                },
+                {
+                    "organization": "KAOS Network",
+                    "role": [
+                        "Organizer",
+                        "Producer",
+                        "Designer",
+                        "Educator"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2021,
+                            "season": "summer"
                         },
-                        {
-                            "type": "boxed",
-                            "label": "the wulf.",
-                            "details": "Operations Manager, Grant Writer & Administrator, Event Producer, Los Angeles CA, 2014 - 2020"
+                        "end": null
+                    }
+                },
+                {
+                    "organization": "a wave (formerly a wave press)",
+                    "role": [
+                        "Owner",
+                        "Curator",
+                        "Producer"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2016,
+                            "month": 1
                         },
-                        {
-                            "type": "boxed",
-                            "label": "Betalevel",
-                            "details": "Curator, Producer, Board Member, Los Angeles CA, 2011 - 2020"
+                        "end": null
+                    }
+                },
+                {
+                    "organization": "Trade School",
+                    "role": [
+                        "Co-founder",
+                        "Curator",
+                        "Event Producer"
+                    ],
+                    "location": "Altadena CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2024,
+                            "month": 7
                         },
-                        {
-                            "type": "boxed",
-                            "label": "The Dog Star Orchestra",
-                            "details": "Archivist, Event Producer, Board Member, Los Angeles CA, 2016 - 2019"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Southland Ensemble",
-                            "details": "Core Member, Los Angeles CA, 2013 - 2019"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Experimental Music Yearbook",
-                            "details": "Co-founder, Editor, Curator, Producer, Los Angeles CA, May 2009 - December 2019"
+                        "end": {
+                            "year": 2026,
+                            "month": 5
                         }
-                    ]
+                    }
+                },
+                {
+                    "organization": "the wulf.",
+                    "role": [
+                        "Operations Manager",
+                        "Grant Writer & Administrator",
+                        "Event Producer"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2014
+                        },
+                        "end": {
+                            "year": 2020
+                        }
+                    }
+                },
+                {
+                    "organization": "BETALEVEL",
+                    "role": [
+                        "Curator",
+                        "Producer",
+                        "Board Member"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2011
+                        },
+                        "end": {
+                            "year": 2020
+                        }
+                    }
+                },
+                {
+                    "organization": "The Dog Star Orchestra",
+                    "role": [
+                        "Archivist",
+                        "Event Producer",
+                        "Board Member"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2016
+                        },
+                        "end": {
+                            "year": 2019
+                        }
+                    }
+                },
+                {
+                    "organization": "Southland Ensemble",
+                    "role": [
+                        "Core Member"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2013
+                        },
+                        "end": {
+                            "year": 2019
+                        }
+                    }
+                },
+                {
+                    "organization": "Experimental Music Yearbook",
+                    "role": [
+                        "Co-founder",
+                        "Editor",
+                        "Curator",
+                        "Producer"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2009,
+                            "month": 5
+                        },
+                        "end": {
+                            "year": 2019,
+                            "month": 12
+                        }
+                    }
                 }
             ]
         },
@@ -155,8 +260,8 @@
                         },
                         {
                             "type": "boxed",
-                            "label": "Lek\u00f2l Kominote Mat\u00e8nwa",
-                            "details": "Creative Technology Instructor, Mat\u00e8nwa HAT, Summer 2016 & 2019"
+                            "label": "Lekòl Kominote Matènwa",
+                            "details": "Creative Technology Instructor, Matènwa HAT, Summer 2016 & 2019"
                         },
                         {
                             "type": "boxed",
@@ -565,7 +670,7 @@
                         {
                             "type": "boxed",
                             "label": "Five Lines",
-                            "details": "Casey Anderson / Jason Kahn / G\u00fcnter M\u00fcller / Norbert M\u00f6slang / Mark Trayle, CD, Mikroton Recordings & Publishing, Ltd., 2014"
+                            "details": "Casey Anderson / Jason Kahn / Günter Müller / Norbert Möslang / Mark Trayle, CD, Mikroton Recordings & Publishing, Ltd., 2014"
                         },
                         {
                             "type": "boxed",

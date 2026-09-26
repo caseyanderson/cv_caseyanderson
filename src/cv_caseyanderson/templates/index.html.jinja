@@ -1,15 +1,81 @@
 {% macro render_education_entry(entry) -%}
-<span class="boxed">{{ entry.degree }} in {{ entry.major | join(", ") }}</span>, {{ entry.institution }}, {{ entry.location }}, <time datetime="{{ entry.time.value.year }}">{{ entry.time.value.year }}</time>
+<span class="boxed">
+    {{- entry.degree }} in {{ entry.major | join(", ") -}}
+</span>
+{{- ", " }}{{ entry.institution }}
+{{- ", " }}{{ entry.location }}
+{{- ", " -}}
+<time datetime="{{ entry.time.value.year }}">
+    {{- entry.time.value.year -}}
+</time>
 {%- endmacro %}
+
+
+{% macro render_date_component(date) -%}
+    {%- set month_names = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ] -%}
+
+    <time datetime="{{ date.year }}{% if date.month is defined %}-{{ "%02d" | format(date.month) }}{% endif %}">
+        {%- if date.month is defined -%}
+            {{ month_names[date.month - 1] }}{{ " " }}
+        {%- elif date.season is defined -%}
+            {{ date.season | capitalize }}{{ " " }}
+        {%- endif -%}
+        {{ date.year }}
+    </time>
+{%- endmacro %}
+
+
+{% macro render_interval(interval) -%}
+    <span class="time-interval">
+        {{- render_date_component(interval.start) -}}
+        {{ " - " }}
+        {%- if interval.end is none -%}
+            present
+        {%- else -%}
+            {{ render_date_component(interval.end) }}
+        {%- endif -%}
+    </span>
+{%- endmacro %}
+
+{% macro render_professional_entry(entry) -%}
+    <span class="boxed">
+        {{- entry.organization -}}
+    </span>
+    {{- ", " }}{{ entry.role | join(", ") }}
+    {{- ", " }}{{ entry.location }}
+    {{- ", " }}{{ render_interval(entry.time) }}
+{%- endmacro %}
+
+
 {% macro render_entry(entry) -%}
-{%- if entry.type == "boxed" -%}
-{{ entry.prefix | default("") }}<span class="boxed">{{ entry.label }}</span>{% if entry.details %}, {{ entry.details }}{% endif %}{{ entry.suffix | default("") }}
-{%- elif entry.type == "link" -%}
-<a href="{{ entry.url }}" target="_blank" rel="noopener">{{ entry.label }}</a>{% if entry.details %} {{ entry.details }}{% endif %}
-{%- elif entry.type == "plain" -%}
-{{ entry.text }}
-{%- endif -%}
+    {%- if entry.type == "boxed" -%}
+        {{ entry.prefix | default("") -}}
+        <span class="boxed">{{ entry.label }}</span>
+        {%- if entry.details %}, {{ entry.details }}{% endif -%}
+        {{ entry.suffix | default("") }}
+    {%- elif entry.type == "link" -%}
+        <a href="{{ entry.url }}" target="_blank" rel="noopener">
+            {{- entry.label -}}
+        </a>
+        {%- if entry.details %} {{ entry.details }}{% endif %}
+    {%- elif entry.type == "plain" -%}
+        {{ entry.text }}
+    {%- endif -%}
 {%- endmacro %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,20 +90,50 @@
         {% for section in sections %}
         <div id="{{ section.id }}">
             <h2>{{ section.title }}</h2>
+
             {% if section.id == "education" %}
                 <ul class="nobullets current">
                     {% for entry in section.entries %}
-                    <li>{{ render_education_entry(entry) }}</li>
+                    <li>
+                        {{- render_education_entry(entry) -}}
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% elif section.id == "professional-experience" %}
+                <h3>Current</h3>
+
+                <ul class="nobullets current section-group-list">
+                    {% for entry in section.entries %}
+                        {% if entry.time.end is none %}
+                        <li>
+                            {{- render_professional_entry(entry) -}}
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+                <h3>Previous</h3>
+
+                <ul class="nobullets previous section-group-list">
+                    {% for entry in section.entries %}
+                        {% if entry.time.end is not none %}
+                        <li>
+                            {{- render_professional_entry(entry) -}}
+                        </li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             {% else %}
                 {% for group in section.groups %}
                     {% if group.title %}
-                        <h3>{{ group.title }}</h3>
+                    <h3>{{ group.title }}</h3>
                     {% endif %}
-                    <ul class="{{ group.classes | join(' ') }}">
+
+                    <ul class="{{ group.classes | join(' ') }}{% if group.title %} section-group-list{% endif %}">
                         {% for entry in group.entries %}
-                            <li>{{ render_entry(entry) }}</li>
+                        <li>
+                            {{- render_entry(entry) -}}
+                        </li>
                         {% endfor %}
                     </ul>
                 {% endfor %}

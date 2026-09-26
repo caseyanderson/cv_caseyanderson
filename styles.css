@@ -40,7 +40,11 @@ p {
 }
 
 time {
-    font-style:italic;
+    font-style: italic;
+}
+
+.time-interval {
+    font-style: italic;
 }
 
 ul.columns {
@@ -57,4 +61,8 @@ ul.nobullets.current {
 
 ul.nobullets.previous {
     margin-top: 18pt;
+}
+
+ul.section-group-list.current {
+    margin-bottom: 18pt;
 }

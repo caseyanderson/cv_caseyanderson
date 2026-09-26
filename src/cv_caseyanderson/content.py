@@ -10,6 +10,32 @@ _EDUCATION_REQUIRED_KEYS = {
     "time",
 }
 
+_PROFESSIONAL_REQUIRED_KEYS = {
+    "organization",
+    "role",
+    "location",
+    "time",
+}
+
+_DATE_COMPONENT_KEYS = {
+    "year",
+    "month",
+    "season",
+}
+
+_VALID_SEASONS = {
+    "spring",
+    "summer",
+    "fall",
+    "winter",
+}
+
+_INTERVAL_KEYS = {
+    "kind",
+    "start",
+    "end",
+}
+
 
 def _has_valid_majors(majors: object) -> bool:
     if not isinstance(majors, list):
@@ -25,7 +51,19 @@ def _has_valid_majors(majors: object) -> bool:
     )
 
 
-def _has_valid_text_fields(
+def _has_valid_roles(roles: object) -> bool:
+    if not isinstance(roles, list):
+        return False
+
+    role_values = cast(
+        list[object],
+        roles,
+    )
+
+    return len(role_values) > 0 and all(isinstance(role, str) for role in role_values)
+
+
+def _has_valid_education_text_fields(
     entry: dict[str, object],
 ) -> bool:
     return all(
@@ -36,6 +74,58 @@ def _has_valid_text_fields(
             "location",
         )
     )
+
+
+def _has_valid_professional_text_fields(
+    entry: dict[str, object],
+) -> bool:
+    return all(
+        isinstance(entry.get(key), str)
+        for key in (
+            "organization",
+            "location",
+        )
+    )
+
+
+def _is_valid_date_component(
+    value: object,
+) -> bool:
+    if not isinstance(value, dict):
+        return False
+
+    component = cast(
+        dict[str, object],
+        value,
+    )
+
+    if not component.keys() <= _DATE_COMPONENT_KEYS:
+        return False
+
+    if type(component.get("year")) is not int:
+        return False
+
+    month = component.get("month")
+    season = component.get("season")
+
+    if month is not None and season is not None:
+        return False
+
+    if month is not None:
+        if type(month) is not int:
+            return False
+
+        if not 1 <= month <= 12:
+            return False
+
+    if season is not None:
+        if not isinstance(season, str):
+            return False
+
+        if season not in _VALID_SEASONS:
+            return False
+
+    return True
 
 
 def _has_valid_time(time_value: object) -> bool:
@@ -52,15 +142,32 @@ def _has_valid_time(time_value: object) -> bool:
 
     date_value = time_data.get("value")
 
-    if not isinstance(date_value, dict):
+    return _is_valid_date_component(date_value)
+
+
+def _is_valid_interval(
+    value: object,
+) -> bool:
+    if not isinstance(value, dict):
         return False
 
-    date_data = cast(
+    interval = cast(
         dict[str, object],
-        date_value,
+        value,
     )
 
-    return type(date_data.get("year")) is int
+    if set(interval.keys()) != _INTERVAL_KEYS:
+        return False
+
+    if interval.get("kind") != "interval":
+        return False
+
+    if not _is_valid_date_component(interval.get("start")):
+        return False
+
+    end = interval.get("end")
+
+    return end is None or _is_valid_date_component(end)
 
 
 def _is_valid_education_entry(
@@ -76,9 +183,28 @@ def _is_valid_education_entry(
 
     return (
         _EDUCATION_REQUIRED_KEYS.issubset(entry.keys())
-        and _has_valid_text_fields(entry)
+        and _has_valid_education_text_fields(entry)
         and _has_valid_majors(entry.get("major"))
         and _has_valid_time(entry.get("time"))
+    )
+
+
+def _is_valid_professional_entry(
+    value: object,
+) -> bool:
+    if not isinstance(value, dict):
+        return False
+
+    entry = cast(
+        dict[str, object],
+        value,
+    )
+
+    return (
+        set(entry.keys()) == _PROFESSIONAL_REQUIRED_KEYS
+        and _has_valid_professional_text_fields(entry)
+        and _has_valid_roles(entry.get("role"))
+        and _is_valid_interval(entry.get("time"))
     )
 
 
@@ -103,6 +229,27 @@ def _validate_education_section(
             raise ValueError("Invalid Education entry " + str(index))
 
 
+def _validate_professional_section(
+    section: dict[str, object],
+) -> None:
+    entries_value = section.get("entries")
+
+    if not isinstance(entries_value, list):
+        raise TypeError("Professional Experience entries must be a list")
+
+    entries = cast(
+        list[object],
+        entries_value,
+    )
+
+    if not entries:
+        raise ValueError("Professional Experience entries must not be empty")
+
+    for index, entry in enumerate(entries):
+        if not _is_valid_professional_entry(entry):
+            raise ValueError("Invalid Professional Experience entry " + str(index))
+
+
 def _validate_cv(
     cv: dict[str, object],
 ) -> None:
@@ -117,6 +264,7 @@ def _validate_cv(
     )
 
     education_section: dict[str, object] | None = None
+    professional_section: dict[str, object] | None = None
 
     for section_value in sections:
         if not isinstance(section_value, dict):
@@ -127,18 +275,31 @@ def _validate_cv(
             section_value,
         )
 
-        if section.get("id") != "education":
-            continue
+        section_id = section.get("id")
 
-        if education_section is not None:
-            raise ValueError("CV must contain only one Education section")
+        if section_id == "education":
+            if education_section is not None:
+                raise ValueError("CV must contain only one Education section")
 
-        education_section = section
+            education_section = section
+
+        elif section_id == "professional-experience":
+            if professional_section is not None:
+                raise ValueError(
+                    "CV must contain only one Professional Experience section"
+                )
+
+            professional_section = section
 
     if education_section is None:
         raise ValueError("CV must contain an Education section")
 
+    if professional_section is None:
+        raise ValueError("CV must contain a Professional Experience section")
+
     _validate_education_section(education_section)
+
+    _validate_professional_section(professional_section)
 
 
 def load_cv(path: Path) -> dict[str, object]:
