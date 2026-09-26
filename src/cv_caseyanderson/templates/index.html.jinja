@@ -1,3 +1,6 @@
+{% macro render_education_entry(entry) -%}
+<span class="boxed">{{ entry.degree }} in {{ entry.major | join(", ") }}</span>, {{ entry.institution }}, {{ entry.location }}, <time datetime="{{ entry.time.value.year }}">{{ entry.time.value.year }}</time>
+{%- endmacro %}
 {% macro render_entry(entry) -%}
 {%- if entry.type == "boxed" -%}
 {{ entry.prefix | default("") }}<span class="boxed">{{ entry.label }}</span>{% if entry.details %}, {{ entry.details }}{% endif %}{{ entry.suffix | default("") }}
@@ -21,16 +24,24 @@
         {% for section in sections %}
         <div id="{{ section.id }}">
             <h2>{{ section.title }}</h2>
-            {% for group in section.groups %}
-                {% if group.title %}
-                <h3>{{ group.title }}</h3>
-                {% endif %}
-                <ul class="{{ group.classes | join(' ') }}">
-                    {% for entry in group.entries %}
-                    <li>{{ render_entry(entry) }}</li>
+            {% if section.id == "education" %}
+                <ul class="nobullets current">
+                    {% for entry in section.entries %}
+                    <li>{{ render_education_entry(entry) }}</li>
                     {% endfor %}
                 </ul>
-            {% endfor %}
+            {% else %}
+                {% for group in section.groups %}
+                    {% if group.title %}
+                        <h3>{{ group.title }}</h3>
+                    {% endif %}
+                    <ul class="{{ group.classes | join(' ') }}">
+                        {% for entry in group.entries %}
+                            <li>{{ render_entry(entry) }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            {% endif %}
         </div>
         {% endfor %}
     </body>

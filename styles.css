@@ -39,6 +39,10 @@ p {
     margin-bottom: 10px;
 }
 
+time {
+    font-style:italic;
+}
+
 ul.columns {
     columns: 2;
 }
