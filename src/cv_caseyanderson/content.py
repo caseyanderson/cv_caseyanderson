@@ -37,30 +37,20 @@ _INTERVAL_KEYS = {
 }
 
 
-def _has_valid_majors(majors: object) -> bool:
-    if not isinstance(majors, list):
+def _is_nonempty_string_list(
+    value: object,
+) -> bool:
+    if not isinstance(value, list):
         return False
 
-    major_values = cast(
+    string_values = cast(
         list[object],
-        majors,
+        value,
     )
 
-    return len(major_values) > 0 and all(
-        isinstance(major, str) for major in major_values
+    return len(string_values) > 0 and all(
+        isinstance(item, str) for item in string_values
     )
-
-
-def _has_valid_roles(roles: object) -> bool:
-    if not isinstance(roles, list):
-        return False
-
-    role_values = cast(
-        list[object],
-        roles,
-    )
-
-    return len(role_values) > 0 and all(isinstance(role, str) for role in role_values)
 
 
 def _has_valid_education_text_fields(
@@ -184,7 +174,7 @@ def _is_valid_education_entry(
     return (
         _EDUCATION_REQUIRED_KEYS.issubset(entry.keys())
         and _has_valid_education_text_fields(entry)
-        and _has_valid_majors(entry.get("major"))
+        and _is_nonempty_string_list(entry.get("major"))
         and _has_valid_time(entry.get("time"))
     )
 
@@ -203,7 +193,7 @@ def _is_valid_professional_entry(
     return (
         set(entry.keys()) == _PROFESSIONAL_REQUIRED_KEYS
         and _has_valid_professional_text_fields(entry)
-        and _has_valid_roles(entry.get("role"))
+        and _is_nonempty_string_list(entry.get("role"))
         and _is_valid_interval(entry.get("time"))
     )
 
