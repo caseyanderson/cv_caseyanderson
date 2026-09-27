@@ -46,6 +46,30 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+            {% elif section.id == "teaching" %}
+                <h3>Current</h3>
+
+                <ul class="nobullets current section-group-list">
+                    {% for entry in section.entries %}
+                        {% if entry.time.kind == "interval" and entry.time.end is none %}
+                        <li>
+                            {{- cv.render_teaching_entry(entry) -}}
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+                <h3>Previous</h3>
+
+                <ul class="nobullets previous section-group-list">
+                    {% for entry in section.entries %}
+                        {% if entry.time.kind != "interval" or entry.time.end is not none %}
+                        <li>
+                            {{- cv.render_teaching_entry(entry) -}}
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             {% else %}
                 {% for group in section.groups %}
                     {% if group.title %}

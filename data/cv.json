@@ -220,59 +220,146 @@
         {
             "id": "teaching",
             "title": "Teaching",
-            "groups": [
+            "entries": [
                 {
-                    "title": "Current",
-                    "classes": [
-                        "nobullets",
-                        "current"
+                    "institution": "ArtCenter College of Design",
+                    "role": [
+                        "Adjunct Assistant Professor"
                     ],
-                    "entries": [
-                        {
-                            "type": "boxed",
-                            "label": "ArtCenter College of Design",
-                            "details": "Adjunct Assistant Professor, Pasadena CA, May 2015 - present; Making Lab Manager, August 2011 - February 2025"
+                    "location": "Pasadena CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2015,
+                            "month": 5
                         },
-                        {
-                            "type": "boxed",
-                            "label": "KAOS Network",
-                            "details": "Creative Technology Instructor, Los Angeles CA, Summer 2021 - present"
-                        }
-                    ]
+                        "end": null
+                    }
                 },
                 {
-                    "title": "Previous",
-                    "classes": [
-                        "nobullets",
-                        "previous"
+                    "institution": "KAOS Network",
+                    "role": [
+                        "Educator"
                     ],
-                    "entries": [
-                        {
-                            "type": "boxed",
-                            "label": "Arizona State University | The Design School (California Center)",
-                            "details": "Faculty Associate, Los Angeles CA, January 2024 - December 2025"
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2021,
+                            "season": "summer"
                         },
-                        {
-                            "type": "boxed",
-                            "label": "University of California, Los Angeles",
-                            "details": "Visiting Lecturer in Design Media Arts, Los Angeles CA, March 2025 - July 2025"
+                        "end": null
+                    }
+                },
+                {
+                    "institution": "University of California, Los Angeles",
+                    "role": [
+                        "Visiting Lecturer"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2025,
+                            "month": 3
                         },
-                        {
-                            "type": "boxed",
-                            "label": "Lekòl Kominote Matènwa",
-                            "details": "Creative Technology Instructor, Matènwa HAT, Summer 2016 & 2019"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Machine Project",
-                            "details": "Creative Technology Instructor, Los Angeles CA, January 2010 - December 2017"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "The Art Institute of California - Los Angeles",
-                            "details": "Adjunct Professor, Santa Monica CA, September 2010 - May 2012"
+                        "end": {
+                            "year": 2025,
+                            "month": 7
                         }
-                    ]
+                    }
+                },
+                {
+                    "institution": "ArtCenter College of Design",
+                    "role": [
+                        "Making Lab Manager"
+                    ],
+                    "location": "Pasadena CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2011,
+                            "month": 8
+                        },
+                        "end": {
+                            "year": 2025,
+                            "month": 3
+                        }
+                    }
+                },
+                {
+                    "institution": "Arizona State University | The Design School (California Center)",
+                    "role": [
+                        "Faculty Associate"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2024,
+                            "month": 1
+                        },
+                        "end": {
+                            "year": 2024,
+                            "month": 12
+                        }
+                    }
+                },
+                {
+                    "institution": "Lekòl Kominote Matènwa",
+                    "role": [
+                        "Educator"
+                    ],
+                    "location": "Matènwa HT",
+                    "time": {
+                        "kind": "dates",
+                        "values": [
+                            {
+                                "year": 2016,
+                                "season": "summer"
+                            },
+                            {
+                                "year": 2019,
+                                "season": "summer"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "institution": "Machine Project",
+                    "role": [
+                        "Educator"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2010,
+                            "month": 1
+                        },
+                        "end": {
+                            "year": 2017,
+                            "month": 12
+                        }
+                    }
+                },
+                {
+                    "institution": "The Art Institute of California - Los Angeles",
+                    "role": [
+                        "Adjunct Professor"
+                    ],
+                    "location": "Santa Monica CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2010,
+                            "month": 9
+                        },
+                        "end": {
+                            "year": 2012,
+                            "month": 5
+                        }
+                    }
                 }
             ]
         },

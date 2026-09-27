@@ -50,6 +50,17 @@
     </span>
 {%- endmacro %}
 
+{% macro render_dates(dates) -%}
+    <span class="time-values">
+        {%- for date in dates["values"] -%}
+            {{ render_date_component(date) }}
+            {%- if not loop.last -%}
+                {{ " & " }}
+            {%- endif -%}
+        {%- endfor -%}
+    </span>
+{% endmacro %}
+
 {% macro render_professional_entry(entry) -%}
     <span class="boxed">
         {{- entry.organization -}}
@@ -59,6 +70,19 @@
     {{- ", " }}{{ render_interval(entry.time) }}
 {%- endmacro %}
 
+{% macro render_teaching_entry(entry) -%}
+    <span class="boxed">
+        {{- entry.institution -}}
+    </span>
+    {{- ", " }}{{ entry.role | join(", ") }}
+    {{- ", " }}{{ entry.location }}
+    {{- ", " }}
+    {%- if entry.time.kind == "interval" -%}
+        {{ render_interval(entry.time) }}
+    {%- elif entry.time.kind == "dates" -%}
+        {{ render_dates(entry.time) }}
+    {%- endif -%}
+{%- endmacro %}
 
 {% macro render_entry(entry) -%}
     {%- if entry.type == "boxed" -%}

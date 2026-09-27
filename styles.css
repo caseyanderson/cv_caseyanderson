@@ -47,6 +47,10 @@ time {
     font-style: italic;
 }
 
+.time-values {
+    font-style: italic;
+}
+
 ul.columns {
     columns: 2;
 }
@@ -57,10 +61,6 @@ ul.nobullets {
 
 ul.nobullets.current {
     margin-bottom: 0;
-}
-
-ul.nobullets.previous {
-    margin-top: 18pt;
 }
 
 ul.section-group-list.current {
