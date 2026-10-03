@@ -84,6 +84,22 @@
     {%- endif -%}
 {%- endmacro %}
 
+{% macro render_guest_lecture_entry(entry) -%}
+    <span class="boxed">
+        {{- entry.institution -}}
+    </span>
+    {{- ", " }}{{ entry.title }}
+    {{- ", " }}{{ entry.context.name }}
+    {{- " (hosted by " }}{{ entry.context.host }}{{ ")" }}
+    {{- ", " }}{{ entry.location }}
+    {{- ", " }}
+    {%- if entry.time.kind == "date" -%}
+        {{ render_date_component(entry.time.value) }}
+    {%- elif entry.time.kind == "dates" -%}
+        {{ render_dates(entry.time) }}
+    {%- endif -%}
+{%- endmacro %}
+
 {% macro render_entry(entry) -%}
     {%- if entry.type == "boxed" -%}
         {{ entry.prefix | default("") -}}

@@ -24,6 +24,19 @@ _TEACHING_REQUIRED_KEYS = {
     "time",
 }
 
+_GUEST_LECTURE_REQUIRED_KEYS = {
+    "institution",
+    "title",
+    "context",
+    "location",
+    "time",
+}
+
+_GUEST_LECTURE_CONTEXT_REQUIRED_KEYS = {
+    "name",
+    "host",
+}
+
 _DATE_COMPONENT_KEYS = {
     "year",
     "month",
@@ -99,6 +112,36 @@ def _has_valid_teaching_text_fields(
             "institution",
             "location",
         )
+    )
+
+
+def _has_valid_guest_lecture_text_fields(
+    entry: dict[str, object],
+) -> bool:
+    return all(
+        isinstance(entry.get(key), str)
+        for key in (
+            "institution",
+            "title",
+            "location",
+        )
+    )
+
+
+def _is_valid_guest_lecture_context(
+    value: object,
+) -> bool:
+    if not isinstance(value, dict):
+        return False
+
+    context = cast(
+        dict[str, object],
+        value,
+    )
+
+    return set(context.keys()) == _GUEST_LECTURE_CONTEXT_REQUIRED_KEYS and all(
+        isinstance(context.get(key), str)
+        for key in _GUEST_LECTURE_CONTEXT_REQUIRED_KEYS
     )
 
 
@@ -222,6 +265,12 @@ def _is_valid_teaching_time(
     return _is_valid_interval(value) or _is_valid_dates(value)
 
 
+def _is_valid_guest_lecture_time(
+    value: object,
+) -> bool:
+    return _has_valid_time(value) or _is_valid_dates(value)
+
+
 def _is_valid_education_entry(
     entry_value: object,
 ) -> bool:
@@ -276,6 +325,25 @@ def _is_valid_teaching_entry(
         and _has_valid_teaching_text_fields(entry)
         and _is_nonempty_string_list(entry.get("role"))
         and _is_valid_teaching_time(entry.get("time"))
+    )
+
+
+def _is_valid_guest_lecture_entry(
+    value: object,
+) -> bool:
+    if not isinstance(value, dict):
+        return False
+
+    entry = cast(
+        dict[str, object],
+        value,
+    )
+
+    return (
+        set(entry.keys()) == _GUEST_LECTURE_REQUIRED_KEYS
+        and _has_valid_guest_lecture_text_fields(entry)
+        and _is_valid_guest_lecture_context(entry.get("context"))
+        and _is_valid_guest_lecture_time(entry.get("time"))
     )
 
 
@@ -342,6 +410,29 @@ def _validate_teaching_section(
             raise ValueError("Invalid Teaching entry " + str(index))
 
 
+def _validate_guest_lecture_section(
+    section: dict[str, object],
+) -> None:
+    entries_value = section.get("entries")
+
+    if not isinstance(entries_value, list):
+        raise TypeError("Guest Lectures & Artist Talks entries must be a list")
+
+    entries = cast(
+        list[object],
+        entries_value,
+    )
+
+    if not entries:
+        raise ValueError("Guest Lectures & Artist Talks entries must not be empty")
+
+    for index, entry in enumerate(entries):
+        if not _is_valid_guest_lecture_entry(entry):
+            raise ValueError(
+                "Invalid Guest Lectures & Artist Talks entry " + str(index)
+            )
+
+
 def _validate_cv(
     cv: dict[str, object],
 ) -> None:
@@ -358,6 +449,7 @@ def _validate_cv(
     education_section: dict[str, object] | None = None
     professional_section: dict[str, object] | None = None
     teaching_section: dict[str, object] | None = None
+    guest_lecture_section: dict[str, object] | None = None
 
     for section_value in sections:
         if not isinstance(section_value, dict):
@@ -390,6 +482,14 @@ def _validate_cv(
 
             teaching_section = section
 
+        elif section_id == "guest-lectures-artist-talks":
+            if guest_lecture_section is not None:
+                raise ValueError(
+                    "CV must contain only one Guest Lectures & Artist Talks section"
+                )
+
+            guest_lecture_section = section
+
     if education_section is None:
         raise ValueError("CV must contain an Education section")
 
@@ -399,11 +499,16 @@ def _validate_cv(
     if teaching_section is None:
         raise ValueError("CV must contain a Teaching section")
 
+    if guest_lecture_section is None:
+        raise ValueError("CV must contain a Guest Lectures & Artist Talks section")
+
     _validate_education_section(education_section)
 
     _validate_professional_section(professional_section)
 
     _validate_teaching_section(teaching_section)
+
+    _validate_guest_lecture_section(guest_lecture_section)
 
 
 def load_cv(path: Path) -> dict[str, object]:

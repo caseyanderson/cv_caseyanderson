@@ -366,74 +366,208 @@
         {
             "id": "guest-lectures-artist-talks",
             "title": "Guest Lectures & Artist Talks",
-            "groups": [
+            "entries": [
                 {
-                    "title": null,
-                    "classes": [
-                        "nobullets"
-                    ],
-                    "entries": [
-                        {
-                            "type": "boxed",
-                            "label": "Bard College",
-                            "details": "Artist Talk, Electronic Music (Matt Sargent, faculty), Annandale-on-Hudson NY, Fall 2023"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "University of California - Santa Cruz",
-                            "details": "Artist Talk, Understanding Media (Dr. Edward Shanken, faculty), Santa Cruz CA, Fall 2021"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "California Institute of the Arts",
-                            "details": "Artist Talk, Experimental Sound Practices Forum (Clay Chaplin, faculty), Valencia CA, Spring 2020"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Pomona College",
-                            "details": "Raspberry Pi 3 for Installations, Installation Art (Mark Allen, faculty), Claremont CA, Fall 2017"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "California Institute of the Arts",
-                            "details": "Guest Critic, Creative Music Electronics (Mark Trayle, faculty), Valencia CA, Spring 2015"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Rhode Island School of Design",
-                            "details": "Guest Critic, Micro Experiences Lab (Shona Kitchen, faculty), Providence RI, Spring 2013"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "ArtCenter College of Design",
-                            "details": "Introduction to Electronics + Arduino, Ambient Media + Interactivity (Kenneth Cameron, faculty), Pasadena CA, Fall 2012"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Pomona College",
-                            "details": "thresholds, Junior/Senior Art Major Seminar (Mark Allen, faculty), Claremont CA, Fall 2012"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Otis College of Art and Design",
-                            "details": "Introduction to Circuit Bending, Moving Parts (Adam Overton, faculty), Los Angeles CA, Spring 2011"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "California Institute of the Arts",
-                            "details": "Wacom Tablet Instrument Design, Supercollider (Mark Trayle, faculty), Valencia CA, Spring 2009"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "University of Wisconsin - Eau Claire",
-                            "details": "Minimalism: an Overview and Analysis, 20th Century Music Theory (Dr. Gary Don, faculty), Eau Claire WI, Spring 2005, 2006, and 2007"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "University of Wisconsin - Eau Claire",
-                            "details": "John Cage's 4'33\", Postmodernism (Dr. Matthew Meyer, faculty), Eau Claire WI, Fall 2006"
+                    "institution": "Bard College",
+                    "title": "Artist Talk",
+                    "context": {
+                        "name": "Electronic Music",
+                        "host": "Matt Sargent"
+                    },
+                    "location": "Annandale-on-Hudson NY",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2023,
+                            "season": "fall"
                         }
-                    ]
+                    }
+                },
+                {
+                    "institution": "University of California - Santa Cruz",
+                    "title": "Artist Talk",
+                    "context": {
+                        "name": "Understanding Media",
+                        "host": "Dr. Edward Shanken"
+                    },
+                    "location": "Santa Cruz CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2021,
+                            "season": "fall"
+                        }
+                    }
+                },
+                {
+                    "institution": "California Institute of the Arts",
+                    "title": "Artist Talk",
+                    "context": {
+                        "name": "Experimental Sound Practices Forum",
+                        "host": "Clay Chaplin"
+                    },
+                    "location": "Valencia CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2020,
+                            "season": "spring"
+                        }
+                    }
+                },
+                {
+                    "institution": "Pomona College",
+                    "title": "Raspberry Pi 3 for Installations",
+                    "context": {
+                        "name": "Installation Art",
+                        "host": "Mark Allen"
+                    },
+                    "location": "Claremont CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2017,
+                            "season": "fall"
+                        }
+                    }
+                },
+                {
+                    "institution": "California Institute of the Arts",
+                    "title": "Guest Critic",
+                    "context": {
+                        "name": "Creative Music Electronics",
+                        "host": "Mark Trayle"
+                    },
+                    "location": "Valencia CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2015,
+                            "season": "spring"
+                        }
+                    }
+                },
+                {
+                    "institution": "Rhode Island School of Design",
+                    "title": "Guest Critic",
+                    "context": {
+                        "name": "Micro Experiences Lab",
+                        "host": "Shona Kitchen"
+                    },
+                    "location": "Providence RI",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2013,
+                            "season": "spring"
+                        }
+                    }
+                },
+                {
+                    "institution": "ArtCenter College of Design",
+                    "title": "Introduction to Electronics + Arduino",
+                    "context": {
+                        "name": "Ambient Media + Interactivity",
+                        "host": "Kenneth Cameron"
+                    },
+                    "location": "Pasadena CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2012,
+                            "season": "fall"
+                        }
+                    }
+                },
+                {
+                    "institution": "Pomona College",
+                    "title": "thresholds",
+                    "context": {
+                        "name": "Junior/Senior Art Major Seminar",
+                        "host": "Mark Allen"
+                    },
+                    "location": "Claremont CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2012,
+                            "season": "fall"
+                        }
+                    }
+                },
+                {
+                    "institution": "Otis College of Art and Design",
+                    "title": "Introduction to Circuit Bending",
+                    "context": {
+                        "name": "Moving Parts",
+                        "host": "Adam Overton"
+                    },
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2011,
+                            "season": "spring"
+                        }
+                    }
+                },
+                {
+                    "institution": "California Institute of the Arts",
+                    "title": "Wacom Tablet Instrument Design",
+                    "context": {
+                        "name": "SuperCollider",
+                        "host": "Mark Trayle"
+                    },
+                    "location": "Valencia CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2009,
+                            "season": "spring"
+                        }
+                    }
+                },
+                {
+                    "institution": "University of Wisconsin - Eau Claire",
+                    "title": "Minimalism: Overview and Analysis",
+                    "context": {
+                        "name": "20th Century Music Theory",
+                        "host": "Dr. Gary Don"
+                    },
+                    "location": "Eau Claire WI",
+                    "time": {
+                        "kind": "dates",
+                        "values": [
+                            {
+                                "year": 2005,
+                                "season": "spring"
+                            },
+                            {
+                                "year": 2006,
+                                "season": "spring"
+                            },
+                            {
+                                "year": 2007,
+                                "season": "spring"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "institution": "University of Wisconsin - Eau Claire",
+                    "title": "John Cage's 4'33\"",
+                    "context": {
+                        "name": "Postmodernism",
+                        "host": "Dr. Matthew Meyer"
+                    },
+                    "location": "Eau Claire WI",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2006,
+                            "season": "fall"
+                        }
+                    }
                 }
             ]
         },

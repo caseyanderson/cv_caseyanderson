@@ -70,6 +70,14 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+            {% elif section.id == "guest-lectures-artist-talks" %}
+                <ul class="nobullets">
+                    {% for entry in section.entries %}
+                    <li>
+                        {{- cv.render_guest_lecture_entry(entry) -}}
+                    </li>
+                    {% endfor %}
+                </ul>
             {% else %}
                 {% for group in section.groups %}
                     {% if group.title %}
