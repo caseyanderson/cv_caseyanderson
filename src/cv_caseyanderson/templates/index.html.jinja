@@ -78,6 +78,14 @@
                     </li>
                     {% endfor %}
                 </ul>
+            {% elif section.id == "selected-awards-distinctions-events" %}
+                <ul class="nobullets">
+                    {% for entry in section.entries %}
+                    <li>
+                        {{- cv.render_awards_events_entry(entry) -}}
+                    </li>
+                    {% endfor %}
+                </ul>
             {% else %}
                 {% for group in section.groups %}
                     {% if group.title %}

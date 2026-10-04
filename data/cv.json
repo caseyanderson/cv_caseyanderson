@@ -574,164 +574,624 @@
         {
             "id": "selected-awards-distinctions-events",
             "title": "Selected Awards, Distinctions, and Events",
-            "groups": [
+            "entries": [
                 {
-                    "title": null,
-                    "classes": [
-                        "nobullets"
+                    "category": "award",
+                    "institutions": [
+                        "City of Los Angeles Department of Cultural Affairs"
                     ],
-                    "entries": [
-                        {
-                            "type": "boxed",
-                            "label": "City of Los Angeles Department of Cultural Affairs",
-                            "details": "DCA Cultural Trailblazers, Los Angeles CA, 2024 - 2025"
+                    "title": "DCA Cultural Trailblazers",
+                    "collaborators": [],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2024
                         },
-                        {
-                            "type": "boxed",
-                            "label": "Art + Practice / California African American Museum",
-                            "details": "KAOS THEORY: The Afrokosmic Media Arts of Ben Caldwell (w/ KAOS Network), Los Angeles CA, Fall 2024 - Spring 2025"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Los Angeles Public Library",
-                            "details": "No Prior Art: Illustrations of Invention (w/ KAOS Network), Los Angeles CA, Fall 2024 - Spring 2025"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Blum Hall at Bard College",
-                            "details": "Bard Electronic Music Presents: Casey Anderson, Annandale-on-Hudson NY, Fall 2023"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Baldwin Hills Crenshaw Plaza",
-                            "details": "Pan African Film Festival (w/ KAOS Network), Los Angeles, Spring 2023"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Baldwin Hills Crenshaw Plaza",
-                            "details": "Crenshaw Remembers (w/ KAOS Network, Getty 25, Crenshaw Creative), Los Angeles CA, Summer 2022"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Tannery Arts Center",
-                            "details": "Edible Instruments (w/ Indexical), Santa Cruz CA, Fall 2021"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Walt Disney Concert Hall",
-                            "details": "LAPhil's Noon to Midnight (w/ Southland Ensemble), Los Angeles CA, Spring 2019"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Seabright State Beach & Ocean View Park",
-                            "details": "Melt Me Into the Ocean (w/ Indexical), Santa Cruz CA, Fall 2018"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Walt Disney Concert Hall",
-                            "details": "LAPhil's Noon to Midnight (w/ the wulf., Southland Ensemble), Los Angeles CA, Fall 2017"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "The Geffen Contemporary at MOCA",
-                            "details": "The Readers Chorus and The Dog Star Orchestra, Los Angeles CA, Summer 2017"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Museum of Contemporary Art",
-                            "details": "Los Angeles, Neon Moon (w/ Nikita Pashenkov, Steven Ziadie), THIS KNOWN WORLD: Spontaneous Particulars of the Poetic Research Bureau, Los Angeles CA, Jan - June 2017"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Museo MACO",
-                            "details": "Umbral 28: Tercer Aniversario, Oaxaca MX, Fall 2016"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "ISSUE Project Room",
-                            "details": "The Experimental Music Yearbook, New York City NY, Fall 2015"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Machine Project",
-                            "details": "Cabinet Magazine: Clapping, Los Angeles CA, Spring 2014"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Machine Project",
-                            "details": "Alvarado Caverns and Mystery Theater, Los Angeles CA, Fall 2013"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Alyce De Roulet Williamson Gallery at Art Center College of Design",
-                            "details": "Intimate Science (w/ Machine Project), Pasadena CA, Summer 2013"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "ISSUE Project Room",
-                            "details": "The Experimental Music Yearbook, New York City NY, Spring 2012"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Machine Project",
-                            "details": "storefront + scopes, circuits [intervention, investigation], for Nate Page's Storefront Plaza, Los Angeles CA, Fall 2011"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "The Walker Art Center",
-                            "details": "Summer Jubilee (w/ Machine Project), Minneapolis MN, Summer 2011"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Museum of Contemporary Art",
-                            "details": "Los Angeles, Sunday Studio (w/ the wulf.), Los Angeles CA, Summer 2011"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Museum of Contemporary Art",
-                            "details": "Los Angeles, Big Family Day (w/ the wulf.), Los Angeles CA, Summer 2011"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "UC Berkeley Art Museum and Pacific Film Archive",
-                            "details": "Confuse-a-tron (w/ Machine Project), Berkeley CA, Spring 2011"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Los Angeles County Museum of Art",
-                            "details": "Electric Melon (w/ Machine Project), Los Angeles CA, Fall 2010"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Santa Monica Pier",
-                            "details": "Glow Festival, Santa Monica CA, Fall 2010"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "REDCAT",
-                            "details": "Center for Experiments in Art, Information and Technology Festival, Los Angeles CA, Spring 2010"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "ISSUE Project Room",
-                            "details": "Residency (w/ MATA), New York City NY, Winter 2010"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "STEIM",
-                            "details": "Residency, Amsterdam NL, Fall 2009"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Atlantic Center for the Arts",
-                            "details": "Residency (w/ Alvin Lucier, David Dunn), New Smyrna Beach FL, Summer 2009"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "MASS MoCA",
-                            "details": "Bang on a Can Summer Music Festival, North Adams MA, Summer 2008"
+                        "end": {
+                            "year": 2025
                         }
-                    ]
+                    }
+                },
+                {
+                    "category": "exhibition",
+                    "institutions": [
+                        "Art + Practice",
+                        "California African American Museum"
+                    ],
+                    "title": "KAOS THEORY: The Afrokosmic Media Arts of Ben Caldwell",
+                    "collaborators": [
+                        "KAOS Network"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2024,
+                            "month": 10,
+                            "day": 12
+                        },
+                        "end": {
+                            "year": 2025,
+                            "month": 3,
+                            "day": 8
+                        }
+                    }
+                },
+                {
+                    "category": "exhibition",
+                    "institutions": [
+                        "Los Angeles Public Library"
+                    ],
+                    "title": "No Prior Art: Illustrations of Invention",
+                    "collaborators": [
+                        "KAOS Network"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2024,
+                            "month": 9,
+                            "day": 14
+                        },
+                        "end": {
+                            "year": 2025,
+                            "month": 5,
+                            "day": 11
+                        }
+                    }
+                },
+                {
+                    "category": "event",
+                    "institutions": [
+                        "Bard College"
+                    ],
+                    "title": "Electronic Music Visiting Artist Casey Anderson",
+                    "collaborators": [],
+                    "location": "Annandale-on-Hudson NY",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2023,
+                            "month": 10,
+                            "day": 17
+                        }
+                    }
+                },
+                {
+                    "category": "exhibition",
+                    "institutions": [
+                        "Pan African Film Festival"
+                    ],
+                    "title": "Do You Want to Make a Robot?",
+                    "part_of": "Pan African Film Festival",
+                    "collaborators": [
+                        "KAOS Network",
+                        "Elizabeth Chin"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2023,
+                            "season": "spring"
+                        }
+                    }
+                },
+                {
+                    "category": "exhibition",
+                    "institutions": [
+                        "Getty",
+                        "Crenshaw Creative"
+                    ],
+                    "title": "KAOS Theory in the Afrokosmic Village of Sankofa City",
+                    "part_of": "Crenshaw Remembers (How to Love)",
+                    "collaborators": [
+                        "KAOS Network",
+                        "Elizabeth Chin"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2022,
+                            "month": 8,
+                            "day": 13
+                        },
+                        "end": {
+                            "year": 2022,
+                            "month": 8,
+                            "day": 14
+                        }
+                    }
+                },
+                {
+                    "category": "workshop",
+                    "institutions": [
+                        "Indexical"
+                    ],
+                    "title": "Edible Instruments",
+                    "collaborators": [],
+                    "location": "Santa Cruz CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2021,
+                            "month": 10,
+                            "day": 28
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "LA Phil"
+                    ],
+                    "title": "Noon to Midnight",
+                    "collaborators": [
+                        "Southland Ensemble"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2019,
+                            "month": 6,
+                            "day": 1
+                        }
+                    }
+                },
+                {
+                    "category": "exhibition",
+                    "institutions": [
+                        "Indexical"
+                    ],
+                    "title": "seeking spirits (a mapping ritual)",
+                    "part_of": "Melt Me Into the Ocean",
+                    "collaborators": [],
+                    "location": "Santa Cruz CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2018,
+                            "month": 8,
+                            "day": 11
+                        }
+                    }
+                },
+                {
+                    "category": "event",
+                    "institutions": [
+                        "LA Phil"
+                    ],
+                    "title": "Noon to Midnight",
+                    "collaborators": [
+                        "the wulf.",
+                        "Southland Ensemble"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2017,
+                            "month": 11,
+                            "day": 18
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "title": "The Readers Chorus and The Dog Star Orchestra",
+                    "institutions": [
+                        "Museum of Contemporary Art, Los Angeles"
+                    ],
+                    "collaborators": [
+                        "The Readers Chorus",
+                        "The Dog Star Orchestra"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2017,
+                            "month": 6,
+                            "day": 3
+                        }
+                    }
+                },
+                {
+                    "category": "exhibition",
+                    "institutions": [
+                        "Museum of Contemporary Art, Los Angeles"
+                    ],
+                    "title": "Neon Moon",
+                    "part_of": "storefront: THIS KNOWN WORLD: Spontaneous Particulars of the Poetic Research Bureau",
+                    "collaborators": [
+                        "Nikita Pashenkov",
+                        "Steven Ziadie"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2017,
+                            "month": 1,
+                            "day": 16
+                        },
+                        "end": {
+                            "year": 2017,
+                            "month": 6,
+                            "day": 26
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "Umbral",
+                        "Museo de Arte Contemporáneo de Oaxaca"
+                    ],
+                    "title": "Umbral 28: Tercer Aniversario",
+                    "collaborators": [],
+                    "location": "Oaxaca MX",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2016,
+                            "season": "fall"
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "ISSUE Project Room"
+                    ],
+                    "title": "Experimental Music Yearbook: Madison Brookshire, Francesco Gagliardi, Paula Matthusen",
+                    "collaborators": [],
+                    "location": "New York City NY",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2015,
+                            "month": 10,
+                            "day": 27
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "Machine Project",
+                        "Cabinet"
+                    ],
+                    "title": "QUARTERS (CLAPPING)",
+                    "part_of": "Hold Your Applause: Four Takes on Clapping",
+                    "collaborators": [],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2014,
+                            "month": 5,
+                            "day": 2
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "Machine Project"
+                    ],
+                    "title": "Alvarado Caverns and Mystery Theater",
+                    "collaborators": [],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2013,
+                            "season": "fall"
+                        }
+                    }
+                },
+                {
+                    "category": "workshop",
+                    "institutions": [
+                        "Machine Project",
+                        "ArtCenter College of Design"
+                    ],
+                    "title": "Electric Bodies",
+                    "part_of": "Intimate Science",
+                    "collaborators": [],
+                    "location": "Pasadena CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2013,
+                            "season": "summer"
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "ISSUE Project Room"
+                    ],
+                    "title": "The Experimental Music Yearbook",
+                    "collaborators": [],
+                    "location": "New York City NY",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2012,
+                            "month": 2,
+                            "day": 25
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "Machine Project"
+                    ],
+                    "title": "storefront + scopes, circuits [intervention, investigation]",
+                    "part_of": "Storefront Plaza",
+                    "collaborators": [
+                        "Nate Page"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2011,
+                            "month": 12,
+                            "day": 4
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "Walker Art Center",
+                        "Machine Project"
+                    ],
+                    "title": "Music For Parking Garages",
+                    "part_of": "Machine Project Summer Jubilee",
+                    "collaborators": [
+                        "Chris Kallmyer",
+                        "Jonathan Zorn",
+                        "Jon Davis",
+                        "Adam Patterson",
+                        "Cantus"
+                    ],
+                    "location": "Minneapolis MN",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2011,
+                            "month": 7,
+                            "day": 21
+                        }
+                    }
+                },
+                {
+                    "category": "event",
+                    "institutions": [
+                        "Museum of Contemporary Art, Los Angeles"
+                    ],
+                    "title": "Sunday Studio",
+                    "collaborators": [
+                        "the wulf."
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2011,
+                            "month": 7,
+                            "day": 3
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "Museum of Contemporary Art, Los Angeles"
+                    ],
+                    "title": "TALK RADIO, an opera",
+                    "part_of": "Big Family Day",
+                    "collaborators": [
+                        "the wulf."
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2011,
+                            "month": 6,
+                            "day": 5
+                        }
+                    }
+                },
+                {
+                    "category": "workshop",
+                    "institutions": [
+                        "UC Berkeley Art Museum and Pacific Film Archive",
+                        "Machine Project"
+                    ],
+                    "title": "Amplified Melons",
+                    "part_of": "Machine Project Presents Confuse-a-tron",
+                    "collaborators": [
+                        "Chris Kallmyer"
+                    ],
+                    "location": "Berkeley CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2011,
+                            "month": 2,
+                            "day": 25
+                        }
+                    }
+                },
+                {
+                    "category": "workshop",
+                    "institutions": [
+                        "Los Angeles County Museum of Art",
+                        "Machine Project"
+                    ],
+                    "title": "Electric Melon Drum Circle",
+                    "part_of": "Let Them Eat LACMA",
+                    "collaborators": [
+                        "Colin Woodford",
+                        "Chris Kallmyer"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2010,
+                            "month": 11,
+                            "day": 7
+                        }
+                    }
+                },
+                {
+                    "category": "event",
+                    "institutions": [
+                        "City of Santa Monica",
+                        "Machine Project"
+                    ],
+                    "title": "Glow 2010",
+                    "collaborators": [],
+                    "location": "Santa Monica CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2010,
+                            "month": 9,
+                            "day": 25
+                        }
+                    }
+                },
+                {
+                    "category": "performance",
+                    "institutions": [
+                        "REDCAT",
+                        "CalArts Center for Experiments in Art, Information and Technology"
+                    ],
+                    "title": "Better Than Future",
+                    "part_of": "12th Annual CEAIT Festival",
+                    "collaborators": [
+                        "Scott Cazan",
+                        "Elisabeth McMullin"
+                    ],
+                    "location": "Los Angeles CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2010,
+                            "month": 3,
+                            "day": 5
+                        }
+                    }
+                },
+                {
+                    "category": "installation",
+                    "institutions": [
+                        "ISSUE Project Room",
+                        "MATA"
+                    ],
+                    "title": "Untitled",
+                    "part_of": "MATA Interval 3.1: Architectures of Sound",
+                    "collaborators": [],
+                    "location": "Brooklyn NY",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2010,
+                            "month": 1,
+                            "day": 13
+                        }
+                    }
+                },
+                {
+                    "category": "residency",
+                    "institutions": [
+                        "STEIM",
+                        "California Institute of the Arts"
+                    ],
+                    "title": "ESP Ensemble Residency",
+                    "collaborators": [
+                        "Clay Chaplin",
+                        "David Casey",
+                        "Aniela Marie Perry"
+                    ],
+                    "location": "Amsterdam NL",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2009,
+                            "month": 10,
+                            "day": 1
+                        },
+                        "end": {
+                            "year": 2009,
+                            "month": 10,
+                            "day": 18
+                        }
+                    }
+                },
+                {
+                    "category": "residency",
+                    "institutions": [
+                        "Atlantic Center for the Arts"
+                    ],
+                    "title": "Residency #133",
+                    "mentors": [
+                        "Alvin Lucier",
+                        "David Dunn"
+                    ],
+                    "collaborators": [],
+                    "location": "New Smyrna Beach FL",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2009,
+                            "month": 5,
+                            "day": 18
+                        },
+                        "end": {
+                            "year": 2009,
+                            "month": 6,
+                            "day": 7
+                        }
+                    }
+                },
+                {
+                    "category": "residency",
+                    "institutions": [
+                        "MASS MoCA",
+                        "Bang on a Can"
+                    ],
+                    "title": "Bang on a Can Summer Music Institute",
+                    "role": "Composer",
+                    "collaborators": [],
+                    "location": "North Adams MA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2008,
+                            "month": 7,
+                            "day": 10
+                        },
+                        "end": {
+                            "year": 2008,
+                            "month": 7,
+                            "day": 26
+                        }
+                    }
                 }
             ]
         },

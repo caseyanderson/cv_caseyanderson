@@ -37,9 +37,35 @@ _GUEST_LECTURE_CONTEXT_REQUIRED_KEYS = {
     "host",
 }
 
+_AWARDS_EVENTS_REQUIRED_KEYS = {
+    "category",
+    "institutions",
+    "title",
+    "collaborators",
+    "location",
+    "time",
+}
+
+_AWARDS_EVENTS_OPTIONAL_KEYS = {
+    "part_of",
+    "mentors",
+    "role",
+}
+
+_AWARDS_EVENTS_CATEGORIES = {
+    "award",
+    "event",
+    "exhibition",
+    "installation",
+    "performance",
+    "residency",
+    "workshop",
+}
+
 _DATE_COMPONENT_KEYS = {
     "year",
     "month",
+    "day",
     "season",
 }
 
@@ -76,6 +102,20 @@ def _is_nonempty_string_list(
     return len(string_values) > 0 and all(
         isinstance(item, str) for item in string_values
     )
+
+
+def _is_string_list(
+    value: object,
+) -> bool:
+    if not isinstance(value, list):
+        return False
+
+    string_values = cast(
+        list[object],
+        value,
+    )
+
+    return all(isinstance(item, str) for item in string_values)
 
 
 def _has_valid_education_text_fields(
@@ -163,6 +203,7 @@ def _is_valid_date_component(
         return False
 
     month = component.get("month")
+    day = component.get("day")
     season = component.get("season")
 
     if month is not None and season is not None:
@@ -173,6 +214,16 @@ def _is_valid_date_component(
             return False
 
         if not 1 <= month <= 12:
+            return False
+
+    if day is not None:
+        if month is None:
+            return False
+
+        if type(day) is not int:
+            return False
+
+        if not 1 <= day <= 31:
             return False
 
     if season is not None:
@@ -271,6 +322,12 @@ def _is_valid_guest_lecture_time(
     return _has_valid_time(value) or _is_valid_dates(value)
 
 
+def _is_valid_awards_events_time(
+    value: object,
+) -> bool:
+    return _has_valid_time(value) or _is_valid_interval(value) or _is_valid_dates(value)
+
+
 def _is_valid_education_entry(
     entry_value: object,
 ) -> bool:
@@ -345,6 +402,56 @@ def _is_valid_guest_lecture_entry(
         and _is_valid_guest_lecture_context(entry.get("context"))
         and _is_valid_guest_lecture_time(entry.get("time"))
     )
+
+
+def _is_valid_awards_events_entry(
+    value: object,
+) -> bool:
+    if not isinstance(value, dict):
+        return False
+
+    entry = cast(
+        dict[str, object],
+        value,
+    )
+
+    entry_keys = set(entry.keys())
+    allowed_keys = _AWARDS_EVENTS_REQUIRED_KEYS | _AWARDS_EVENTS_OPTIONAL_KEYS
+
+    if not _AWARDS_EVENTS_REQUIRED_KEYS <= entry_keys:
+        return False
+
+    if not entry_keys <= allowed_keys:
+        return False
+
+    if entry.get("category") not in _AWARDS_EVENTS_CATEGORIES:
+        return False
+
+    if not all(
+        isinstance(entry.get(key), str)
+        for key in (
+            "title",
+            "location",
+        )
+    ):
+        return False
+
+    if not _is_nonempty_string_list(entry.get("institutions")):
+        return False
+
+    if not _is_string_list(entry.get("collaborators")):
+        return False
+
+    if "part_of" in entry and not isinstance(entry.get("part_of"), str):
+        return False
+
+    if "mentors" in entry and not _is_nonempty_string_list(entry.get("mentors")):
+        return False
+
+    if "role" in entry and not isinstance(entry.get("role"), str):
+        return False
+
+    return _is_valid_awards_events_time(entry.get("time"))
 
 
 def _validate_education_section(
@@ -433,6 +540,33 @@ def _validate_guest_lecture_section(
             )
 
 
+def _validate_awards_events_section(
+    section: dict[str, object],
+) -> None:
+    entries_value = section.get("entries")
+
+    if not isinstance(entries_value, list):
+        raise TypeError(
+            "Selected Awards, Distinctions, and Events entries must be a list"
+        )
+
+    entries = cast(
+        list[object],
+        entries_value,
+    )
+
+    if not entries:
+        raise ValueError(
+            "Selected Awards, Distinctions, and Events entries must not be empty"
+        )
+
+    for index, entry in enumerate(entries):
+        if not _is_valid_awards_events_entry(entry):
+            raise ValueError(
+                "Invalid Selected Awards, Distinctions, and Events entry " + str(index)
+            )
+
+
 def _validate_cv(
     cv: dict[str, object],
 ) -> None:
@@ -450,6 +584,7 @@ def _validate_cv(
     professional_section: dict[str, object] | None = None
     teaching_section: dict[str, object] | None = None
     guest_lecture_section: dict[str, object] | None = None
+    awards_events_section: dict[str, object] | None = None
 
     for section_value in sections:
         if not isinstance(section_value, dict):
@@ -490,6 +625,14 @@ def _validate_cv(
 
             guest_lecture_section = section
 
+        elif section_id == "selected-awards-distinctions-events":
+            if awards_events_section is not None:
+                raise ValueError(
+                    "CV must contain only one Selected Awards, Distinctions, and Events section"
+                )
+
+            awards_events_section = section
+
     if education_section is None:
         raise ValueError("CV must contain an Education section")
 
@@ -502,6 +645,11 @@ def _validate_cv(
     if guest_lecture_section is None:
         raise ValueError("CV must contain a Guest Lectures & Artist Talks section")
 
+    if awards_events_section is None:
+        raise ValueError(
+            "CV must contain a Selected Awards, Distinctions, and Events section"
+        )
+
     _validate_education_section(education_section)
 
     _validate_professional_section(professional_section)
@@ -510,9 +658,10 @@ def _validate_cv(
 
     _validate_guest_lecture_section(guest_lecture_section)
 
+    _validate_awards_events_section(awards_events_section)
+
 
 def load_cv(path: Path) -> dict[str, object]:
-
     raw_data = cast(
         object,
         json.loads(path.read_text(encoding="utf-8")),

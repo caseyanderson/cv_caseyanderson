@@ -10,7 +10,6 @@
 </time>
 {%- endmacro %}
 
-
 {% macro render_date_component(date) -%}
     {%- set month_names = [
         "January",
@@ -27,16 +26,20 @@
         "December"
     ] -%}
 
-    <time datetime="{{ date.year }}{% if date.month is defined %}-{{ "%02d" | format(date.month) }}{% endif %}">
+    <time datetime="{{ date.year }}{% if date.month is defined %}-{{ "%02d" | format(date.month) }}{% endif %}{% if date.day is defined %}-{{ "%02d" | format(date.day) }}{% endif %}">
         {%- if date.month is defined -%}
-            {{ month_names[date.month - 1] }}{{ " " }}
+            {{ month_names[date.month - 1] }}
+            {%- if date.day is defined -%}
+                {{ " " }}{{ date.day }}{{ ", " }}
+            {%- else -%}
+                {{ " " }}
+            {%- endif -%}
         {%- elif date.season is defined -%}
             {{ date.season | capitalize }}{{ " " }}
         {%- endif -%}
         {{ date.year }}
     </time>
 {%- endmacro %}
-
 
 {% macro render_interval(interval) -%}
     <span class="time-interval">
@@ -95,6 +98,38 @@
     {{- ", " }}
     {%- if entry.time.kind == "date" -%}
         {{ render_date_component(entry.time.value) }}
+    {%- elif entry.time.kind == "dates" -%}
+        {{ render_dates(entry.time) }}
+    {%- endif -%}
+{%- endmacro %}
+
+{% macro render_awards_events_entry(entry) -%}
+    <span class="boxed">
+        {{- entry.institutions | join(", ") -}}
+    </span>
+    {{- ", " }}{{ entry.title }}
+    {%- if entry.part_of is defined -%}
+        {{- ", " }}{{ entry.part_of }}
+    {%- endif -%}
+    {%- if entry.role is defined -%}
+        {{- ", " }}{{ entry.role }}
+    {%- endif -%}
+    {%- if entry.mentors is defined -%}
+        {{- " (mentored by " }}
+        {{- entry.mentors | join(", ") -}}
+        {{- ")" }}
+    {%- endif -%}
+    {%- if entry.collaborators -%}
+        {{- " (w/ " }}
+        {{- entry.collaborators | join(", ") -}}
+        {{- ")" }}
+    {%- endif -%}
+    {{- ", " }}{{ entry.location }}
+    {{- ", " }}
+    {%- if entry.time.kind == "date" -%}
+        {{ render_date_component(entry.time.value) }}
+    {%- elif entry.time.kind == "interval" -%}
+        {{ render_interval(entry.time) }}
     {%- elif entry.time.kind == "dates" -%}
         {{ render_dates(entry.time) }}
     {%- endif -%}
