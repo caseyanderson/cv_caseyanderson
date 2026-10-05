@@ -39,7 +39,7 @@ _GUEST_LECTURE_CONTEXT_REQUIRED_KEYS = {
 
 _AWARDS_EVENTS_REQUIRED_KEYS = {
     "category",
-    "institutions",
+    "organizations",
     "title",
     "collaborators",
     "location",
@@ -60,6 +60,21 @@ _AWARDS_EVENTS_CATEGORIES = {
     "performance",
     "residency",
     "workshop",
+}
+
+_ORGANIZATION_REQUIRED_KEYS = {
+    "name",
+    "roles",
+}
+
+_ORGANIZATION_ROLES = {
+    "venue",
+    "presenter",
+    "organizer",
+    "curator",
+    "producer",
+    "awarding_body",
+    "residency_host",
 }
 
 _DATE_COMPONENT_KEYS = {
@@ -116,6 +131,54 @@ def _is_string_list(
     )
 
     return all(isinstance(item, str) for item in string_values)
+
+
+def _is_valid_organization(
+    value: object,
+) -> bool:
+    if not isinstance(value, dict):
+        return False
+
+    organization = cast(
+        dict[str, object],
+        value,
+    )
+
+    if set(organization.keys()) != _ORGANIZATION_REQUIRED_KEYS:
+        return False
+
+    if not isinstance(organization.get("name"), str):
+        return False
+
+    roles_value = organization.get("roles")
+
+    if not isinstance(roles_value, list):
+        return False
+
+    roles = cast(
+        list[object],
+        roles_value,
+    )
+
+    return len(roles) > 0 and all(
+        isinstance(role, str) and role in _ORGANIZATION_ROLES for role in roles
+    )
+
+
+def _is_valid_organizations(
+    value: object,
+) -> bool:
+    if not isinstance(value, list):
+        return False
+
+    organizations = cast(
+        list[object],
+        value,
+    )
+
+    return len(organizations) > 0 and all(
+        _is_valid_organization(organization) for organization in organizations
+    )
 
 
 def _has_valid_education_text_fields(
@@ -436,7 +499,7 @@ def _is_valid_awards_events_entry(
     ):
         return False
 
-    if not _is_nonempty_string_list(entry.get("institutions")):
+    if not _is_valid_organizations(entry.get("organizations")):
         return False
 
     if not _is_string_list(entry.get("collaborators")):
