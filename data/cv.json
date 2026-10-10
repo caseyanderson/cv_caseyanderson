@@ -589,14 +589,15 @@
                             "year": 2025
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "City of Los Angeles Department of Cultural Affairs",
                             "roles": [
                                 "awarding_body"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "exhibition",
@@ -618,20 +619,22 @@
                             "day": 8
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Art + Practice",
                             "roles": [
                                 "venue"
                             ]
                         },
-                        {
-                            "name": "California African American Museum",
-                            "roles": [
-                                "presenter"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "California African American Museum",
+                                "roles": [
+                                    "presenter"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "exhibition",
@@ -653,14 +656,15 @@
                             "day": 11
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Los Angeles Public Library",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "event",
@@ -675,14 +679,15 @@
                             "day": 17
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Bard College",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "exhibition",
@@ -700,14 +705,15 @@
                             "season": "spring"
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Pan African Film Festival",
                             "roles": [
                                 "presenter"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "exhibition",
@@ -731,21 +737,23 @@
                             "day": 14
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Getty",
                             "roles": [
                                 "presenter"
                             ]
                         },
-                        {
-                            "name": "Crenshaw Creative",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "Crenshaw Creative",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "workshop",
@@ -760,20 +768,22 @@
                             "day": 28
                         }
                     },
-                    "organizations": [
-                        {
-                            "name": "Tannery Arts Center",
-                            "roles": [
-                                "venue"
-                            ]
-                        },
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Indexical",
                             "roles": [
                                 "presenter"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": [
+                            {
+                                "name": "Tannery Arts Center",
+                                "roles": [
+                                    "venue"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "performance",
@@ -790,14 +800,15 @@
                             "day": 1
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "LA Phil",
                             "roles": [
                                 "presenter"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "exhibition",
@@ -813,14 +824,15 @@
                             "day": 11
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Indexical",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "event",
@@ -838,14 +850,15 @@
                             "day": 18
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "LA Phil",
                             "roles": [
                                 "presenter"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "performance",
@@ -863,14 +876,15 @@
                             "day": 3
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Museum of Contemporary Art, Los Angeles",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "exhibition",
@@ -894,14 +908,15 @@
                             "day": 26
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Museum of Contemporary Art, Los Angeles",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "performance",
@@ -915,21 +930,23 @@
                             "season": "fall"
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Museo de Arte Contemporáneo de Oaxaca",
                             "roles": [
                                 "venue"
                             ]
                         },
-                        {
-                            "name": "Umbral",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "Umbral",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "performance",
@@ -944,14 +961,15 @@
                             "day": 27
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "ISSUE Project Room",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "performance",
@@ -967,22 +985,24 @@
                             "day": 2
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Machine Project",
                             "roles": [
                                 "venue",
                                 "producer"
                             ]
                         },
-                        {
-                            "name": "Cabinet",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "Cabinet",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "performance",
@@ -996,14 +1016,15 @@
                             "season": "fall"
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Machine Project",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "workshop",
@@ -1018,21 +1039,23 @@
                             "season": "summer"
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Alyce de Roulet Williamson Gallery at ArtCenter College of Design",
                             "roles": [
                                 "venue"
                             ]
                         },
-                        {
-                            "name": "Machine Project",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "Machine Project",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "performance",
@@ -1047,14 +1070,15 @@
                             "day": 25
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "ISSUE Project Room",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "performance",
@@ -1072,14 +1096,15 @@
                             "day": 4
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Machine Project",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "performance",
@@ -1101,21 +1126,23 @@
                             "day": 21
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Walker Art Center",
                             "roles": [
                                 "venue"
                             ]
                         },
-                        {
-                            "name": "Machine Project",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "Machine Project",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "event",
@@ -1132,14 +1159,15 @@
                             "day": 3
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Museum of Contemporary Art, Los Angeles",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "performance",
@@ -1157,14 +1185,15 @@
                             "day": 5
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Museum of Contemporary Art, Los Angeles",
                             "roles": [
                                 "venue"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "workshop",
@@ -1182,21 +1211,23 @@
                             "day": 25
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "UC Berkeley Art Museum and Pacific Film Archive",
                             "roles": [
                                 "venue"
                             ]
                         },
-                        {
-                            "name": "Machine Project",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "Machine Project",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "workshop",
@@ -1215,21 +1246,23 @@
                             "day": 7
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Los Angeles County Museum of Art",
                             "roles": [
                                 "venue"
                             ]
                         },
-                        {
-                            "name": "Machine Project",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "Machine Project",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "event",
@@ -1244,21 +1277,23 @@
                             "day": 25
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "City of Santa Monica",
                             "roles": [
                                 "presenter"
                             ]
                         },
-                        {
-                            "name": "Machine Project",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "Machine Project",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "performance",
@@ -1277,21 +1312,23 @@
                             "day": 5
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "REDCAT",
                             "roles": [
                                 "venue"
                             ]
                         },
-                        {
-                            "name": "CalArts Center for Experiments in Art, Information and Technology",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "CalArts Center for Experiments in Art, Information and Technology",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "installation",
@@ -1307,21 +1344,23 @@
                             "day": 13
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "ISSUE Project Room",
                             "roles": [
                                 "venue"
                             ]
                         },
-                        {
-                            "name": "MATA",
-                            "roles": [
-                                "curator",
-                                "producer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "MATA",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "residency",
@@ -1345,20 +1384,22 @@
                             "day": 18
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "STEIM",
                             "roles": [
                                 "residency_host"
                             ]
                         },
-                        {
-                            "name": "California Institute of the Arts",
-                            "roles": [
-                                "organizer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "California Institute of the Arts",
+                                "roles": [
+                                    "organizer"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
                     "category": "residency",
@@ -1382,14 +1423,15 @@
                             "day": 7
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "Atlantic Center for the Arts",
                             "roles": [
                                 "residency_host"
                             ]
-                        }
-                    ]
+                        },
+                        "additional": []
+                    }
                 },
                 {
                     "category": "residency",
@@ -1410,20 +1452,22 @@
                             "day": 26
                         }
                     },
-                    "organizations": [
-                        {
+                    "organizations": {
+                        "primary": {
                             "name": "MASS MoCA",
                             "roles": [
                                 "residency_host"
                             ]
                         },
-                        {
-                            "name": "Bang on a Can",
-                            "roles": [
-                                "organizer"
-                            ]
-                        }
-                    ]
+                        "additional": [
+                            {
+                                "name": "Bang on a Can",
+                                "roles": [
+                                    "organizer"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         },

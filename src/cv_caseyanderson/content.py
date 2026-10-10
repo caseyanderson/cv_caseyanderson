@@ -168,17 +168,31 @@ def _is_valid_organization(
 def _is_valid_organizations(
     value: object,
 ) -> bool:
-    if not isinstance(value, list):
+    if not isinstance(value, dict):
         return False
 
     organizations = cast(
-        list[object],
+        dict[str, object],
         value,
     )
 
-    return len(organizations) > 0 and all(
-        _is_valid_organization(organization) for organization in organizations
+    if set(organizations.keys()) != {"primary", "additional"}:
+        return False
+
+    if not _is_valid_organization(organizations.get("primary")):
+        return False
+
+    additional_value = organizations.get("additional")
+
+    if not isinstance(additional_value, list):
+        return False
+
+    additional = cast(
+        list[object],
+        additional_value,
     )
+
+    return all(_is_valid_organization(organization) for organization in additional)
 
 
 def _has_valid_education_text_fields(

@@ -104,20 +104,11 @@
 {%- endmacro %}
 
 {% macro render_organizations(organizations) -%}
-    {%- for organization in organizations -%}
-        {%- if
-            "venue" in organization.roles
-            or "presenter" in organization.roles
-            or "awarding_body" in organization.roles
-            or "residency_host" in organization.roles
-        -%}
-            <span class="boxed">{{- organization.name -}}</span>
-        {%- else -%}
-            {{- organization.name -}}
-        {%- endif -%}
-        {%- if not loop.last -%}
-            {{- ", " -}}
-        {%- endif -%}
+    <span class="boxed">
+        {{- organizations.primary.name -}}
+    </span>
+    {%- for organization in organizations.additional -%}
+        {{- ", " }}{{ organization.name }}
     {%- endfor -%}
 {%- endmacro %}
 
