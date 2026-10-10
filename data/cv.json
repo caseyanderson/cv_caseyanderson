@@ -109,7 +109,7 @@
                     "role": [
                         "Co-founder",
                         "Curator",
-                        "Event Producer"
+                        "Producer"
                     ],
                     "location": "Altadena CA",
                     "time": {
@@ -129,7 +129,7 @@
                     "role": [
                         "Operations Manager",
                         "Grant Writer & Administrator",
-                        "Event Producer"
+                        "Producer"
                     ],
                     "location": "Los Angeles CA",
                     "time": {
@@ -164,7 +164,7 @@
                     "organization": "The Dog Star Orchestra",
                     "role": [
                         "Archivist",
-                        "Event Producer",
+                        "Producer",
                         "Board Member"
                     ],
                     "location": "Los Angeles CA",
@@ -1490,7 +1490,7 @@
                         {
                             "type": "boxed",
                             "label": "Pacific Ocean",
-                            "details": "Geography of Hope Literary Conference, Point Reyes CA, 2011"
+                            "details": "(w/ Brenda Hillman, Michael Winter), Geography of Hope Literary Conference, Point Reyes CA, 2011"
                         }
                     ]
                 }
