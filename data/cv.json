@@ -1474,69 +1474,162 @@
         {
             "id": "conferences",
             "title": "Conferences",
-            "groups": [
+            "entries": [
                 {
-                    "title": null,
-                    "classes": [
-                        "nobullets"
+                    "title": "Return to the Local: Centering Labor Politics in Community Arts Programming",
+                    "collaborators": [
+                        "Arden Stern"
                     ],
-                    "entries": [
-                        {
-                            "type": "boxed",
-                            "label": "Return to the Local: Centering Labor Politics in Community Arts Programming",
-                            "details": "The Labor and Working-Class History Association Conference, Chicago IL, 2025"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Lessons from Labor Organizing in Design Education",
-                            "details": "College Art Association Conference, New York NY, 2025"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Hey, Do You Want to Make a Robot? Creative Technology Education for Resource Constrained Communities",
-                            "details": "Annual Conference of the Society for Experiential Education, New Orleans LA, 2024"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Hey, Do You Want to Make a Robot?",
-                            "details": "Annual Meeting of the Society for Applied Anthropology, Santa Fe NM, 2024"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Hey, Do You Want to Make a Robot?",
-                            "details": "College Art Association Conference, Chicago IL, 2024"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Do You Want to Make a Robot?: Showing up as method for crafting technologies of Black abundance",
-                            "details": "STS Italia, Bologna IT, 2023"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Antiracist Tactics for Digitally Engaged Teaching and Learning",
-                            "details": "Digitally Engaged Learning Conference, Toronto CA, 2018"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "ghostses",
-                            "details": "Performing Indeterminacy: An International Conference, University of Leeds UK, 2017"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Repurpose, Remix, Bend: Piloting A Locally Defined Technology Curriculum",
-                            "details": "Annual Meeting of the Society for Applied Anthropology, Santa Fe NM, 2017"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Maker Spaces in Schools of Art and Design",
-                            "details": "invited presentation, Make Schools Alliance Meeting, White House Office of Science and Technology Policy, Washington DC, 2016"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Pacific Ocean",
-                            "details": "(w/ Brenda Hillman, Michael Winter), Geography of Hope Literary Conference, Point Reyes CA, 2011"
+                    "conference": "The Labor and Working-Class History Association Conference",
+                    "location": "Chicago IL",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2025
                         }
-                    ]
+                    }
+                },
+                {
+                    "title": "Lessons from Labor Organizing in Design Education",
+                    "collaborators": [
+                        "Arden Stern"
+                    ],
+                    "conference": "College Art Association Conference",
+                    "location": "New York NY",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2025
+                        }
+                    }
+                },
+                {
+                    "title": "Hey, Do You Want to Make a Robot? Creative Technology Education for Resource Constrained Communities",
+                    "collaborators": [
+                        "Elizabeth Chin"
+                    ],
+                    "conference": "Annual Conference of the Society for Experiential Education",
+                    "location": "New Orleans LA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2024
+                        }
+                    }
+                },
+                {
+                    "title": "Hey, Do You Want to Make a Robot?",
+                    "collaborators": [
+                        "Elizabeth Chin"
+                    ],
+                    "conference": "Annual Meeting of the Society for Applied Anthropology",
+                    "location": "Santa Fe NM",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2024
+                        }
+                    }
+                },
+                {
+                    "title": "Hey, Do You Want to Make a Robot?",
+                    "collaborators": [
+                        "Elizabeth Chin"
+                    ],
+                    "conference": "College Art Association Conference",
+                    "location": "Chicago IL",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2024
+                        }
+                    }
+                },
+                {
+                    "title": "Do You Want to Make a Robot?: Showing up as method for crafting technologies of Black abundance",
+                    "collaborators": [
+                        "Elizabeth Chin"
+                    ],
+                    "conference": "The Italian Society for Social Studies of Science and Technology",
+                    "location": "Bologna IT",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2023
+                        }
+                    }
+                },
+                {
+                    "title": "Antiracist Tactics for Digitally Engaged Teaching and Learning",
+                    "collaborators": [
+                        "Elizabeth Chin"
+                    ],
+                    "conference": "Digitally Engaged Learning Conference",
+                    "location": "Toronto CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2018
+                        }
+                    }
+                },
+                {
+                    "title": "ghostses",
+                    "collaborators": [
+                        "BENT DUO"
+                    ],
+                    "conference": "Performing Indeterminacy: An International Conference",
+                    "location": "Leeds UK",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2017
+                        }
+                    }
+                },
+                {
+                    "title": "Repurpose, Remix, Bend: Piloting A Locally Defined Technology Curriculum",
+                    "collaborators": [
+                        "Elizabeth Chin"
+                    ],
+                    "conference": "Annual Meeting of the Society for Applied Anthropology",
+                    "location": "Santa Fe NM",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2017
+                        }
+                    }
+                },
+                {
+                    "title": "Maker Spaces in Schools of Art and Design",
+                    "collaborators": [
+                        "Elise Co",
+                        "Ian Besler"
+                    ],
+                    "conference": "Make Schools Alliance Meeting: White House Office of Science and Technology Policy",
+                    "location": "Washington DC",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2016
+                        }
+                    }
+                },
+                {
+                    "title": "Pacific Ocean",
+                    "collaborators": [
+                        "Brenda Hillman",
+                        "Michael Winter"
+                    ],
+                    "conference": "Geography of Hope Literary Conference",
+                    "location": "Point Reyes CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2011
+                        }
+                    }
                 }
             ]
         },

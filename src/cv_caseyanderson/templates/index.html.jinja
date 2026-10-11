@@ -86,6 +86,14 @@
                     </li>
                     {% endfor %}
                 </ul>
+            {% elif section.id == "conferences" %}
+                <ul class="nobullets">
+                    {% for entry in section.entries %}
+                    <li>
+                        {{- cv.render_conference_entry(entry) -}}
+                    </li>
+                    {% endfor %}
+                </ul>
             {% else %}
                 {% for group in section.groups %}
                     {% if group.title %}

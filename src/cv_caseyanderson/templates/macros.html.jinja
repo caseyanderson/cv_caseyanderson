@@ -142,6 +142,20 @@
     {%- endif -%}
 {%- endmacro %}
 
+{% macro render_conference_entry(entry) -%}
+    <span class="boxed">
+        {{- entry.title -}}
+    </span>
+    {%- if entry.collaborators -%}
+        {{- " (w/ " }}
+        {{- entry.collaborators | join(", ") -}}
+        {{- ")" }}
+    {%- endif -%}
+    {{- ", " }}{{ entry.conference }}
+    {{- ", " }}{{ entry.location }}
+    {{- ", " }}{{ render_date_component(entry.time.value) }}
+{%- endmacro %}
+
 {% macro render_entry(entry) -%}
     {%- if entry.type == "boxed" -%}
         {{ entry.prefix | default("") -}}

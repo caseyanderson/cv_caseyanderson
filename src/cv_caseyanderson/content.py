@@ -62,6 +62,14 @@ _AWARDS_EVENTS_CATEGORIES = {
     "workshop",
 }
 
+_CONFERENCE_REQUIRED_KEYS = {
+    "title",
+    "conference",
+    "collaborators",
+    "location",
+    "time",
+}
+
 _ORGANIZATION_REQUIRED_KEYS = {
     "name",
     "roles",
@@ -531,6 +539,28 @@ def _is_valid_awards_events_entry(
     return _is_valid_awards_events_time(entry.get("time"))
 
 
+def _is_valid_conference_entry(
+    value: object,
+) -> bool:
+    if not isinstance(value, dict):
+        return False
+
+    entry = cast(
+        dict[str, object],
+        value,
+    )
+
+    return (
+        set(entry.keys()) == _CONFERENCE_REQUIRED_KEYS
+        and all(
+            isinstance(entry.get(key), str)
+            for key in ("title", "conference", "location")
+        )
+        and _is_string_list(entry.get("collaborators"))
+        and _has_valid_time(entry.get("time"))
+    )
+
+
 def _validate_education_section(
     section: dict[str, object],
 ) -> None:
@@ -644,6 +674,27 @@ def _validate_awards_events_section(
             )
 
 
+def _validate_conference_section(
+    section: dict[str, object],
+) -> None:
+    entries_value = section.get("entries")
+
+    if not isinstance(entries_value, list):
+        raise TypeError("Conferences entries must be a list")
+
+    entries = cast(
+        list[object],
+        entries_value,
+    )
+
+    if not entries:
+        raise ValueError("Conferences entries must not be empty")
+
+    for index, entry in enumerate(entries):
+        if not _is_valid_conference_entry(entry):
+            raise ValueError("Invalid Conferences entry " + str(index))
+
+
 def _validate_cv(
     cv: dict[str, object],
 ) -> None:
@@ -662,6 +713,7 @@ def _validate_cv(
     teaching_section: dict[str, object] | None = None
     guest_lecture_section: dict[str, object] | None = None
     awards_events_section: dict[str, object] | None = None
+    conference_section: dict[str, object] | None = None
 
     for section_value in sections:
         if not isinstance(section_value, dict):
@@ -710,6 +762,12 @@ def _validate_cv(
 
             awards_events_section = section
 
+        elif section_id == "conferences":
+            if conference_section is not None:
+                raise ValueError("CV must contain only one Conferences section")
+
+            conference_section = section
+
     if education_section is None:
         raise ValueError("CV must contain an Education section")
 
@@ -727,6 +785,9 @@ def _validate_cv(
             "CV must contain a Selected Awards, Distinctions, and Events section"
         )
 
+    if conference_section is None:
+        raise ValueError("CV must contain a Conferences section")
+
     _validate_education_section(education_section)
 
     _validate_professional_section(professional_section)
@@ -736,6 +797,8 @@ def _validate_cv(
     _validate_guest_lecture_section(guest_lecture_section)
 
     _validate_awards_events_section(awards_events_section)
+
+    _validate_conference_section(conference_section)
 
 
 def load_cv(path: Path) -> dict[str, object]:
