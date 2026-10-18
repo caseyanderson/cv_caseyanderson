@@ -297,11 +297,13 @@
                         "kind": "interval",
                         "start": {
                             "year": 2024,
-                            "month": 1
+                            "month": 1,
+                            "day": 22
                         },
                         "end": {
                             "year": 2024,
-                            "month": 12
+                            "month": 5,
+                            "day": 6
                         }
                     }
                 },
