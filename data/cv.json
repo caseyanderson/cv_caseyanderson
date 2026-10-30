@@ -222,21 +222,6 @@
             "title": "Teaching",
             "entries": [
                 {
-                    "institution": "ArtCenter College of Design",
-                    "role": [
-                        "Adjunct Assistant Professor"
-                    ],
-                    "location": "Pasadena CA",
-                    "time": {
-                        "kind": "interval",
-                        "start": {
-                            "year": 2015,
-                            "month": 5
-                        },
-                        "end": null
-                    }
-                },
-                {
                     "institution": "KAOS Network",
                     "role": [
                         "Educator"
@@ -247,6 +232,21 @@
                         "start": {
                             "year": 2021,
                             "season": "summer"
+                        },
+                        "end": null
+                    }
+                },
+                {
+                    "institution": "ArtCenter College of Design",
+                    "role": [
+                        "Adjunct Assistant Professor"
+                    ],
+                    "location": "Pasadena CA",
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2015,
+                            "month": 5
                         },
                         "end": null
                     }
