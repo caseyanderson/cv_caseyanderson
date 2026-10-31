@@ -14,8 +14,8 @@
             <h1>{{ profile.name }}</h1>
             <p>
                 {{ profile.location }} ·
-                <a href="mailto:{{ profile.email }}">{{ profile.email }}</a> ·
-                <a href="{{ profile.website }}" target="_blank" rel="noopener">{{ profile.website }}</a>
+                <a href="{{ profile.website }}" target="_blank" rel="noopener">{{ profile.website }}</a> ·
+                <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
             </p>
         </header>
         {% for section in sections %}
