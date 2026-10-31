@@ -67,9 +67,22 @@ ul.section-group-list.current {
     margin-bottom: 18pt;
 }
 
+.cv-header {
+    margin: 20px;
+    overflow-wrap: anywhere;
+}
+
+.cv-header a {
+    white-space: nowrap;
+}
+
 @media screen and (max-width: 40rem) {
     body {
         margin: 12px;
+    }
+
+    .cv-header {
+        margin: 12px 0;
     }
 
     body > div {

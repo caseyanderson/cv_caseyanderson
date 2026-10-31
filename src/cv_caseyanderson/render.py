@@ -39,4 +39,7 @@ def render_cv(
 
     template = create_environment().get_template("index.html.jinja")
 
-    return template.render(sections=sections)
+    return template.render(
+        sections=sections,
+        profile=cv["profile"],
+    )

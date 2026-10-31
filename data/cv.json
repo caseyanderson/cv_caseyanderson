@@ -1863,5 +1863,11 @@
                 }
             ]
         }
-    ]
+    ],
+    "profile": {
+        "name": "Casey Anderson",
+        "location": "Los Angeles, CA",
+        "email": "cta@caseyanderson.com",
+        "website": "https://caseyanderson.com/"
+    }
 }
