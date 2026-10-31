@@ -66,3 +66,23 @@ ul.nobullets.current {
 ul.section-group-list.current {
     margin-bottom: 18pt;
 }
+
+@media screen and (max-width: 40rem) {
+    body {
+        margin: 12px;
+    }
+
+    body > div {
+        margin: 12px 0;
+        padding: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    ul.nobullets {
+        padding-left: 0;
+    }
+
+    ul.columns {
+        columns: 1;
+    }
+}
