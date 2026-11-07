@@ -56,6 +56,7 @@ _AWARDS_EVENTS_CATEGORIES = {
     "award",
     "event",
     "exhibition",
+    "grant",
     "installation",
     "performance",
     "residency",

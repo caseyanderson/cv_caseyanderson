@@ -578,16 +578,13 @@
             "title": "Selected Awards, Distinctions, and Events",
             "entries": [
                 {
-                    "category": "award",
+                    "category": "grant",
                     "title": "DCA Cultural Trailblazers",
                     "collaborators": [],
                     "location": "Los Angeles CA",
                     "time": {
-                        "kind": "interval",
-                        "start": {
-                            "year": 2024
-                        },
-                        "end": {
+                        "kind": "date",
+                        "value": {
                             "year": 2025
                         }
                     },
