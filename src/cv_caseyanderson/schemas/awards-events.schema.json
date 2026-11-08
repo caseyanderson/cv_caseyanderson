@@ -1,0 +1,356 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "collaborators": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "part_of": {
+            "type": "object",
+            "required": [
+                "title"
+            ],
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "collaborators": {
+                    "$ref": "#/$defs/collaborators"
+                }
+            },
+            "additionalProperties": false
+        },
+        "organization": {
+            "type": "object",
+            "required": [
+                "name",
+                "roles"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "roles": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "enum": [
+                            "venue",
+                            "presenter",
+                            "organizer",
+                            "curator",
+                            "producer",
+                            "awarding_body",
+                            "residency_host"
+                        ]
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "organizations": {
+            "type": "object",
+            "required": [
+                "primary",
+                "additional"
+            ],
+            "properties": {
+                "primary": {
+                    "$ref": "#/$defs/organization"
+                },
+                "additional": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/organization"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "date_component": {
+            "type": "object",
+            "required": [
+                "year"
+            ],
+            "properties": {
+                "year": {
+                    "type": "integer"
+                },
+                "month": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 12
+                },
+                "day": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 31
+                },
+                "season": {
+                    "enum": [
+                        "spring",
+                        "summer",
+                        "fall",
+                        "winter",
+                        null
+                    ]
+                }
+            },
+            "not": {
+                "required": [
+                    "month",
+                    "season"
+                ],
+                "properties": {
+                    "month": {
+                        "type": "integer"
+                    },
+                    "season": {
+                        "type": "string"
+                    }
+                }
+            },
+            "if": {
+                "required": [
+                    "day"
+                ],
+                "properties": {
+                    "day": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "month"
+                ],
+                "properties": {
+                    "month": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "time": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "required": [
+                        "kind",
+                        "value"
+                    ],
+                    "properties": {
+                        "kind": {
+                            "const": "date"
+                        },
+                        "value": {
+                            "$ref": "#/$defs/date_component"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "required": [
+                        "kind",
+                        "start",
+                        "end"
+                    ],
+                    "properties": {
+                        "kind": {
+                            "const": "interval"
+                        },
+                        "start": {
+                            "$ref": "#/$defs/date_component"
+                        },
+                        "end": {
+                            "anyOf": [
+                                {
+                                    "$ref": "#/$defs/date_component"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                {
+                    "type": "object",
+                    "required": [
+                        "kind",
+                        "values"
+                    ],
+                    "properties": {
+                        "kind": {
+                            "const": "dates"
+                        },
+                        "values": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "$ref": "#/$defs/date_component"
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "entry": {
+            "type": "object",
+            "required": [
+                "category",
+                "title",
+                "collaborators",
+                "location",
+                "organizations"
+            ],
+            "properties": {
+                "category": {
+                    "enum": [
+                        "event",
+                        "award",
+                        "distinction",
+                        "grant"
+                    ]
+                },
+                "event_type": {
+                    "enum": [
+                        "exhibition",
+                        "performance",
+                        "festival",
+                        "workshop",
+                        "installation",
+                        "residency",
+                        "talk"
+                    ]
+                },
+                "title": {
+                    "type": "string"
+                },
+                "collaborators": {
+                    "$ref": "#/$defs/collaborators"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "organizations": {
+                    "$ref": "#/$defs/organizations"
+                },
+                "time": {
+                    "$ref": "#/$defs/time"
+                },
+                "part_of": {
+                    "$ref": "#/$defs/part_of"
+                },
+                "mentors": {
+                    "$ref": "#/$defs/collaborators",
+                    "minItems": 1
+                },
+                "role": {
+                    "type": "string"
+                },
+                "recipients": {
+                    "$ref": "#/$defs/collaborators",
+                    "minItems": 1
+                },
+                "cohort_year": {
+                    "type": "integer"
+                },
+                "program_cycle": {
+                    "type": "string"
+                },
+                "notification_date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "stipend": {
+                    "type": "object",
+                    "required": [
+                        "amount",
+                        "currency"
+                    ],
+                    "properties": {
+                        "amount": {
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "currency": {
+                            "const": "USD"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false,
+            "if": {
+                "properties": {
+                    "category": {
+                        "const": "event"
+                    }
+                },
+                "required": [
+                    "category"
+                ]
+            },
+            "then": {
+                "required": [
+                    "time"
+                ]
+            },
+            "else": {
+                "required": [
+                    "recipients"
+                ],
+                "properties": {
+                    "event_type": false
+                },
+                "oneOf": [
+                    {
+                        "required": [
+                            "time"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "cohort_year"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "type": "object",
+    "required": [
+        "id",
+        "title",
+        "entries"
+    ],
+    "properties": {
+        "id": {
+            "const": "selected-awards-distinctions-events"
+        },
+        "title": {
+            "type": "string"
+        },
+        "entries": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/$defs/entry"
+            }
+        }
+    },
+    "additionalProperties": false
+}

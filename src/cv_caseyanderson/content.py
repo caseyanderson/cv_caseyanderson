@@ -2,6 +2,13 @@ import json
 from pathlib import Path
 from typing import cast
 
+from jsonschema import Draft202012Validator, FormatChecker
+from jsonschema.protocols import Validator
+
+type JsonValue = (
+    str | int | float | bool | None | list[JsonValue] | dict[str, JsonValue]
+)
+
 _EDUCATION_REQUIRED_KEYS = {
     "degree",
     "major",
@@ -37,53 +44,12 @@ _GUEST_LECTURE_CONTEXT_REQUIRED_KEYS = {
     "host",
 }
 
-_AWARDS_EVENTS_REQUIRED_KEYS = {
-    "category",
-    "organizations",
-    "title",
-    "collaborators",
-    "location",
-    "time",
-}
-
-_AWARDS_EVENTS_OPTIONAL_KEYS = {
-    "part_of",
-    "mentors",
-    "role",
-}
-
-_AWARDS_EVENTS_CATEGORIES = {
-    "award",
-    "event",
-    "exhibition",
-    "grant",
-    "installation",
-    "performance",
-    "residency",
-    "workshop",
-}
-
 _CONFERENCE_REQUIRED_KEYS = {
     "title",
     "conference",
     "collaborators",
     "location",
     "time",
-}
-
-_ORGANIZATION_REQUIRED_KEYS = {
-    "name",
-    "roles",
-}
-
-_ORGANIZATION_ROLES = {
-    "venue",
-    "presenter",
-    "organizer",
-    "curator",
-    "producer",
-    "awarding_body",
-    "residency_host",
 }
 
 _DATE_COMPONENT_KEYS = {
@@ -140,68 +106,6 @@ def _is_string_list(
     )
 
     return all(isinstance(item, str) for item in string_values)
-
-
-def _is_valid_organization(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    organization = cast(
-        dict[str, object],
-        value,
-    )
-
-    if set(organization.keys()) != _ORGANIZATION_REQUIRED_KEYS:
-        return False
-
-    if not isinstance(organization.get("name"), str):
-        return False
-
-    roles_value = organization.get("roles")
-
-    if not isinstance(roles_value, list):
-        return False
-
-    roles = cast(
-        list[object],
-        roles_value,
-    )
-
-    return len(roles) > 0 and all(
-        isinstance(role, str) and role in _ORGANIZATION_ROLES for role in roles
-    )
-
-
-def _is_valid_organizations(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    organizations = cast(
-        dict[str, object],
-        value,
-    )
-
-    if set(organizations.keys()) != {"primary", "additional"}:
-        return False
-
-    if not _is_valid_organization(organizations.get("primary")):
-        return False
-
-    additional_value = organizations.get("additional")
-
-    if not isinstance(additional_value, list):
-        return False
-
-    additional = cast(
-        list[object],
-        additional_value,
-    )
-
-    return all(_is_valid_organization(organization) for organization in additional)
 
 
 def _has_valid_education_text_fields(
@@ -408,12 +312,6 @@ def _is_valid_guest_lecture_time(
     return _has_valid_time(value) or _is_valid_dates(value)
 
 
-def _is_valid_awards_events_time(
-    value: object,
-) -> bool:
-    return _has_valid_time(value) or _is_valid_interval(value) or _is_valid_dates(value)
-
-
 def _is_valid_education_entry(
     entry_value: object,
 ) -> bool:
@@ -488,56 +386,6 @@ def _is_valid_guest_lecture_entry(
         and _is_valid_guest_lecture_context(entry.get("context"))
         and _is_valid_guest_lecture_time(entry.get("time"))
     )
-
-
-def _is_valid_awards_events_entry(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    entry = cast(
-        dict[str, object],
-        value,
-    )
-
-    entry_keys = set(entry.keys())
-    allowed_keys = _AWARDS_EVENTS_REQUIRED_KEYS | _AWARDS_EVENTS_OPTIONAL_KEYS
-
-    if not _AWARDS_EVENTS_REQUIRED_KEYS <= entry_keys:
-        return False
-
-    if not entry_keys <= allowed_keys:
-        return False
-
-    if entry.get("category") not in _AWARDS_EVENTS_CATEGORIES:
-        return False
-
-    if not all(
-        isinstance(entry.get(key), str)
-        for key in (
-            "title",
-            "location",
-        )
-    ):
-        return False
-
-    if not _is_valid_organizations(entry.get("organizations")):
-        return False
-
-    if not _is_string_list(entry.get("collaborators")):
-        return False
-
-    if "part_of" in entry and not isinstance(entry.get("part_of"), str):
-        return False
-
-    if "mentors" in entry and not _is_nonempty_string_list(entry.get("mentors")):
-        return False
-
-    if "role" in entry and not isinstance(entry.get("role"), str):
-        return False
-
-    return _is_valid_awards_events_time(entry.get("time"))
 
 
 def _is_valid_conference_entry(
@@ -651,28 +499,39 @@ def _validate_guest_lecture_section(
 def _validate_awards_events_section(
     section: dict[str, object],
 ) -> None:
-    entries_value = section.get("entries")
-
-    if not isinstance(entries_value, list):
+    if not isinstance(section.get("entries"), list):
         raise TypeError(
             "Selected Awards, Distinctions, and Events entries must be a list"
         )
 
-    entries = cast(
-        list[object],
-        entries_value,
+    schema_path = Path(__file__).parent / "schemas" / "awards-events.schema.json"
+
+    schema = cast(
+        dict[str, object],
+        json.loads(schema_path.read_text(encoding="utf-8")),
     )
 
-    if not entries:
-        raise ValueError(
-            "Selected Awards, Distinctions, and Events entries must not be empty"
-        )
+    validator = cast(
+        Validator,
+        Draft202012Validator(
+            schema,
+            format_checker=FormatChecker(),
+        ),
+    )
 
-    for index, entry in enumerate(entries):
-        if not _is_valid_awards_events_entry(entry):
-            raise ValueError(
-                "Invalid Selected Awards, Distinctions, and Events entry " + str(index)
-            )
+    instance = cast(dict[str, JsonValue], section)
+    error = next(validator.iter_errors(instance), None)
+
+    if error is not None:
+        error_path = ".".join(str(component) for component in error.absolute_path)
+
+        raise ValueError(
+            "Invalid Selected Awards, Distinctions, and Events"
+            + " at "
+            + (error_path or "section")
+            + ": "
+            + error.message
+        )
 
 
 def _validate_conference_section(

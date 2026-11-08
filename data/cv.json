@@ -578,16 +578,10 @@
             "title": "Selected Awards, Distinctions, and Events",
             "entries": [
                 {
-                    "category": "grant",
+                    "category": "distinction",
                     "title": "DCA Cultural Trailblazers",
                     "collaborators": [],
                     "location": "Los Angeles CA",
-                    "time": {
-                        "kind": "date",
-                        "value": {
-                            "year": 2025
-                        }
-                    },
                     "organizations": {
                         "primary": {
                             "name": "City of Los Angeles Department of Cultural Affairs",
@@ -596,10 +590,20 @@
                             ]
                         },
                         "additional": []
+                    },
+                    "recipients": [
+                        "Casey Anderson"
+                    ],
+                    "cohort_year": 2025,
+                    "program_cycle": "2024–25",
+                    "notification_date": "2024-07-12",
+                    "stipend": {
+                        "amount": 400,
+                        "currency": "USD"
                     }
                 },
                 {
-                    "category": "exhibition",
+                    "category": "event",
                     "title": "KAOS THEORY: The Afrokosmic Media Arts of Ben Caldwell",
                     "collaborators": [
                         "KAOS Network"
@@ -633,10 +637,11 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "exhibition"
                 },
                 {
-                    "category": "exhibition",
+                    "category": "event",
                     "title": "No Prior Art: Illustrations of Invention",
                     "collaborators": [
                         "KAOS Network"
@@ -663,7 +668,8 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "exhibition"
                 },
                 {
                     "category": "event",
@@ -689,9 +695,11 @@
                     }
                 },
                 {
-                    "category": "exhibition",
+                    "category": "event",
                     "title": "Do You Want to Make a Robot?",
-                    "part_of": "Pan African Film Festival",
+                    "part_of": {
+                        "title": "Pan African Film Festival"
+                    },
                     "collaborators": [
                         "KAOS Network",
                         "Elizabeth Chin"
@@ -712,12 +720,15 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "exhibition"
                 },
                 {
-                    "category": "exhibition",
+                    "category": "event",
                     "title": "KAOS Theory in the Afrokosmic Village of Sankofa City",
-                    "part_of": "Crenshaw Remembers (How to Love)",
+                    "part_of": {
+                        "title": "Crenshaw Remembers (How to Love)"
+                    },
                     "collaborators": [
                         "KAOS Network",
                         "Elizabeth Chin"
@@ -752,10 +763,11 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "exhibition"
                 },
                 {
-                    "category": "workshop",
+                    "category": "event",
                     "title": "Edible Instruments",
                     "collaborators": [],
                     "location": "Santa Cruz CA",
@@ -782,10 +794,11 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "workshop"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "Noon to Midnight",
                     "collaborators": [
                         "Southland Ensemble"
@@ -807,12 +820,15 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "festival"
                 },
                 {
-                    "category": "exhibition",
+                    "category": "event",
                     "title": "seeking spirits (a mapping ritual)",
-                    "part_of": "Melt Me Into the Ocean",
+                    "part_of": {
+                        "title": "Melt Me Into the Ocean"
+                    },
                     "collaborators": [],
                     "location": "Santa Cruz CA",
                     "time": {
@@ -831,7 +847,8 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "exhibition"
                 },
                 {
                     "category": "event",
@@ -857,10 +874,11 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "festival"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "The Readers Chorus and The Dog Star Orchestra",
                     "collaborators": [
                         "The Readers Chorus",
@@ -883,12 +901,15 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
-                    "category": "exhibition",
+                    "category": "event",
                     "title": "Neon Moon",
-                    "part_of": "storefront: THIS KNOWN WORLD: Spontaneous Particulars of the Poetic Research Bureau",
+                    "part_of": {
+                        "title": "storefront: THIS KNOWN WORLD: Spontaneous Particulars of the Poetic Research Bureau"
+                    },
                     "collaborators": [
                         "Nikita Pashenkov",
                         "Steven Ziadie"
@@ -915,10 +936,11 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "exhibition"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "Umbral 28: Tercer Aniversario",
                     "collaborators": [],
                     "location": "Oaxaca MX",
@@ -945,10 +967,11 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "Experimental Music Yearbook: Madison Brookshire, Francesco Gagliardi, Paula Matthusen",
                     "collaborators": [],
                     "location": "New York City NY",
@@ -968,12 +991,15 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "QUARTERS (CLAPPING)",
-                    "part_of": "Hold Your Applause: Four Takes on Clapping",
+                    "part_of": {
+                        "title": "Hold Your Applause: Four Takes on Clapping"
+                    },
                     "collaborators": [],
                     "location": "Los Angeles CA",
                     "time": {
@@ -1001,10 +1027,11 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "Alvarado Caverns and Mystery Theater",
                     "collaborators": [],
                     "location": "Los Angeles CA",
@@ -1023,12 +1050,15 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
-                    "category": "workshop",
+                    "category": "event",
                     "title": "Electric Bodies",
-                    "part_of": "Intimate Science",
+                    "part_of": {
+                        "title": "Intimate Science"
+                    },
                     "collaborators": [],
                     "location": "Pasadena CA",
                     "time": {
@@ -1054,10 +1084,11 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "workshop"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "The Experimental Music Yearbook",
                     "collaborators": [],
                     "location": "New York City NY",
@@ -1077,15 +1108,19 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "storefront + scopes, circuits [intervention, investigation]",
-                    "part_of": "Storefront Plaza",
-                    "collaborators": [
-                        "Nate Page"
-                    ],
+                    "part_of": {
+                        "title": "Storefront Plaza",
+                        "collaborators": [
+                            "Nate Page"
+                        ]
+                    },
+                    "collaborators": [],
                     "location": "Los Angeles CA",
                     "time": {
                         "kind": "date",
@@ -1103,12 +1138,15 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "Music For Parking Garages",
-                    "part_of": "Machine Project Summer Jubilee",
+                    "part_of": {
+                        "title": "Machine Project Summer Jubilee"
+                    },
                     "collaborators": [
                         "Chris Kallmyer",
                         "Jonathan Zorn",
@@ -1141,7 +1179,8 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
                     "category": "event",
@@ -1169,12 +1208,15 @@
                     }
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "TALK RADIO, an opera",
-                    "part_of": "Big Family Day",
-                    "collaborators": [
-                        "the wulf."
-                    ],
+                    "part_of": {
+                        "title": "Big Family Day",
+                        "collaborators": [
+                            "the wulf."
+                        ]
+                    },
+                    "collaborators": [],
                     "location": "Los Angeles CA",
                     "time": {
                         "kind": "date",
@@ -1192,12 +1234,15 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
-                    "category": "workshop",
+                    "category": "event",
                     "title": "Amplified Melons",
-                    "part_of": "Machine Project Presents Confuse-a-tron",
+                    "part_of": {
+                        "title": "Machine Project Presents Confuse-a-tron"
+                    },
                     "collaborators": [
                         "Chris Kallmyer"
                     ],
@@ -1226,12 +1271,15 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "workshop"
                 },
                 {
-                    "category": "workshop",
+                    "category": "event",
                     "title": "Electric Melon Drum Circle",
-                    "part_of": "Let Them Eat LACMA",
+                    "part_of": {
+                        "title": "Let Them Eat LACMA"
+                    },
                     "collaborators": [
                         "Colin Woodford",
                         "Chris Kallmyer"
@@ -1261,7 +1309,8 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "workshop"
                 },
                 {
                     "category": "event",
@@ -1292,12 +1341,15 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "festival"
                 },
                 {
-                    "category": "performance",
+                    "category": "event",
                     "title": "Better Than Future",
-                    "part_of": "12th Annual CEAIT Festival",
+                    "part_of": {
+                        "title": "12th Annual CEAIT Festival"
+                    },
                     "collaborators": [
                         "Scott Cazan",
                         "Elisabeth McMullin"
@@ -1327,12 +1379,15 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "performance"
                 },
                 {
-                    "category": "installation",
+                    "category": "event",
                     "title": "Untitled",
-                    "part_of": "MATA Interval 3.1: Architectures of Sound",
+                    "part_of": {
+                        "title": "MATA Interval 3.1: Architectures of Sound"
+                    },
                     "collaborators": [],
                     "location": "Brooklyn NY",
                     "time": {
@@ -1359,10 +1414,11 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "installation"
                 },
                 {
-                    "category": "residency",
+                    "category": "event",
                     "title": "ESP Ensemble Residency",
                     "collaborators": [
                         "Clay Chaplin",
@@ -1398,10 +1454,11 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "residency"
                 },
                 {
-                    "category": "residency",
+                    "category": "event",
                     "title": "Residency #133",
                     "mentors": [
                         "Alvin Lucier",
@@ -1430,10 +1487,11 @@
                             ]
                         },
                         "additional": []
-                    }
+                    },
+                    "event_type": "residency"
                 },
                 {
-                    "category": "residency",
+                    "category": "event",
                     "title": "Bang on a Can Summer Music Institute",
                     "role": "Composer",
                     "collaborators": [],
@@ -1466,7 +1524,8 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    "event_type": "residency"
                 }
             ]
         },

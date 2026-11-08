@@ -115,25 +115,52 @@
 {% macro render_awards_events_entry(entry) -%}
     {{- render_organizations(entry.organizations) -}}
     {{- ", " }}{{ entry.title }}
-    {%- if entry.part_of is defined -%}
-        {{- ", " }}{{ entry.part_of }}
-    {%- endif -%}
-    {%- if entry.role is defined -%}
-        {{- ", " }}{{ entry.role }}
-    {%- endif -%}
-    {%- if entry.mentors is defined -%}
-        {{- " (mentored by " }}
-        {{- entry.mentors | join(", ") -}}
-        {{- ")" }}
-    {%- endif -%}
+
     {%- if entry.collaborators -%}
         {{- " (w/ " }}
         {{- entry.collaborators | join(", ") -}}
         {{- ")" }}
     {%- endif -%}
+
+    {%- if entry.part_of is defined -%}
+        {%- set organization_names = [
+            entry.organizations.primary.name
+        ] + (
+            entry.organizations.additional
+            | map(attribute="name")
+            | list
+        ) -%}
+
+        {%- if entry.part_of.title not in organization_names -%}
+            {{- ", " }}{{ entry.part_of.title }}
+
+            {%- if entry.part_of.collaborators is defined
+                and entry.part_of.collaborators -%}
+                {{- " (w/ " }}
+                {{- entry.part_of.collaborators | join(", ") -}}
+                {{- ")" }}
+            {%- endif -%}
+        {%- endif -%}
+    {%- endif -%}
+
+    {%- if entry.role is defined -%}
+        {{- ", " }}{{ entry.role }}
+    {%- endif -%}
+
+    {%- if entry.mentors is defined -%}
+        {{- " (mentored by " }}
+        {{- entry.mentors | join(", ") -}}
+        {{- ")" }}
+    {%- endif -%}
+
     {{- ", " }}{{ entry.location }}
     {{- ", " }}
-    {%- if entry.time.kind == "date" -%}
+
+    {%- if entry.cohort_year is defined -%}
+        <time datetime="{{ entry.cohort_year }}">
+            {{- entry.cohort_year -}}
+        </time>
+    {%- elif entry.time.kind == "date" -%}
         {{ render_date_component(entry.time.value) }}
     {%- elif entry.time.kind == "interval" -%}
         {{ render_interval(entry.time) }}
