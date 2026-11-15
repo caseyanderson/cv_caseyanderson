@@ -110,6 +110,14 @@ def _validate_publications_section(section: dict[str, object]) -> None:
     )
 
 
+def _validate_discography_section(section: dict[str, object]) -> None:
+    _validate_section_schema(
+        section,
+        "selected-discography.schema.json",
+        "Selected Discography",
+    )
+
+
 def _validate_cv(
     cv: dict[str, object],
 ) -> None:
@@ -130,6 +138,7 @@ def _validate_cv(
     awards_events_section: dict[str, object] | None = None
     conference_section: dict[str, object] | None = None
     publications_section: dict[str, object] | None = None
+    discography_section: dict[str, object] | None = None
 
     for section_value in sections:
         if not isinstance(section_value, dict):
@@ -190,6 +199,14 @@ def _validate_cv(
 
             publications_section = section
 
+        elif section_id == "selected-discography":
+            if discography_section is not None:
+                raise ValueError(
+                    "CV must contain only one Selected Discography section"
+                )
+
+            discography_section = section
+
     if education_section is None:
         raise ValueError("CV must contain an Education section")
 
@@ -213,6 +230,9 @@ def _validate_cv(
     if publications_section is None:
         raise ValueError("CV must contain a Publications section")
 
+    if discography_section is None:
+        raise ValueError("CV must contain a Selected Discography section")
+
     _validate_education_section(education_section)
 
     _validate_professional_section(professional_section)
@@ -226,6 +246,8 @@ def _validate_cv(
     _validate_conference_section(conference_section)
 
     _validate_publications_section(publications_section)
+
+    _validate_discography_section(discography_section)
 
 
 def load_cv(path: Path) -> dict[str, object]:

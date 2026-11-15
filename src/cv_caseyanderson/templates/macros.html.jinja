@@ -37,7 +37,7 @@
         {%- elif date.season is defined -%}
             {{ date.season | capitalize }}{{ " " }}
         {%- endif -%}
-        {{ date.year }}
+        {{ date.year -}}
     </time>
 {%- endmacro %}
 
@@ -189,6 +189,17 @@
     </a>
     {{- " " }}{{ entry.publication }}
     {{- ", " }}{{ render_date_component(entry.time.value) }}
+{%- endmacro %}
+
+{% macro render_discography_entry(entry) -%}
+    {%- set planned = entry.status | default("") == "planned" -%}
+    {%- if planned %}({% endif -%}
+    <span class="boxed">{{ entry.title }}</span>
+    {{- ", " }}{{ entry.artists | join(" / ") }}
+    {{- ", " }}{{ entry.formats | join(" / ") }}
+    {{- ", " }}{{ entry.record_label }}
+    {{- ", " }}{{ render_date_component(entry.time.value) }}
+    {%- if planned %}){% endif -%}
 {%- endmacro %}
 
 {% macro render_entry(entry) -%}

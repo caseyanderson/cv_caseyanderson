@@ -1741,90 +1741,268 @@
         {
             "id": "selected-discography",
             "title": "Selected Discography",
-            "groups": [
+            "entries": [
                 {
-                    "title": null,
-                    "classes": [
-                        "nobullets"
+                    "title": "SCENE MISSING",
+                    "artists": [
+                        "Casey Anderson"
                     ],
-                    "entries": [
+                    "formats": [
+                        "CS",
+                        "Download"
+                    ],
+                    "record_label": "a wave press",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2027
+                        }
+                    },
+                    "status": "planned"
+                },
+                {
+                    "title": "a wave ensemble Presents Works by Anderson, Butler, and Gerowitz",
+                    "artists": [
+                        "a wave ensemble"
+                    ],
+                    "formats": [
+                        "CD",
+                        "Download"
+                    ],
+                    "record_label": "a wave press",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2027
+                        }
+                    },
+                    "status": "planned"
+                },
+                {
+                    "title": "Supercosmic",
+                    "artists": [
+                        "Bitpanic"
+                    ],
+                    "formats": [
+                        "CD",
+                        "Download"
+                    ],
+                    "record_label": "Casa Berenice Recordings",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2022
+                        }
+                    }
+                },
+                {
+                    "title": "In My Room: Live Electronic Ensemble Music by Mark Trayle",
+                    "artists": [
+                        "The Hub",
+                        "Bitpanic"
+                    ],
+                    "formats": [
+                        "CD",
+                        "Download"
+                    ],
+                    "record_label": "Artifact Recordings",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2022
+                        }
+                    }
+                },
+                {
+                    "title": "yon ti vizit",
+                    "artists": [
+                        "Elizabeth Chin",
+                        "Anetude \"Zaza\" Geffrard",
+                        "Casey Anderson"
+                    ],
+                    "formats": [
+                        "LP",
+                        "Download"
+                    ],
+                    "record_label": "a wave press",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2020
+                        }
+                    }
+                },
+                {
+                    "title": "Bent Duo Presents ghostses by Casey Anderson",
+                    "artists": [
+                        "Bent Duo"
+                    ],
+                    "formats": [
+                        "CD"
+                    ],
+                    "record_label": "a wave press",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2019
+                        }
+                    }
+                },
+                {
+                    "title": "RADIOS",
+                    "artists": [
+                        "Casey Anderson"
+                    ],
+                    "formats": [
+                        "CD"
+                    ],
+                    "record_label": "a wave press",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2016
+                        }
+                    }
+                },
+                {
+                    "title": "Five Lines",
+                    "artists": [
+                        "Casey Anderson",
+                        "Jason Kahn",
+                        "Günter Müller",
+                        "Norbert Möslang",
+                        "Mark Trayle"
+                    ],
+                    "formats": [
+                        "CD"
+                    ],
+                    "record_label": "Mikroton Recordings & Publishing, Ltd.",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2014
+                        }
+                    }
+                },
+                {
+                    "title": "west coast soundings",
+                    "artists": [
+                        "Gratkowski",
+                        "Mense",
+                        "Lukoszevieze",
+                        "Josel",
+                        "koch"
+                    ],
+                    "formats": [
+                        "2xCD"
+                    ],
+                    "record_label": "Edition Wandelweiser Records",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2014
+                        }
+                    },
+                    "works": [
                         {
-                            "type": "boxed",
-                            "label": "SCENE MISSING",
-                            "details": "Casey Anderson, CS / Download, a wave press, 2027",
-                            "status": "planned",
-                            "prefix": "(",
-                            "suffix": ")"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "a wave ensemble Presents Works by Anderson, Butler, and Gerowitz",
-                            "details": "a wave ensemble, CD / Download, a wave press, 2027",
-                            "status": "planned",
-                            "prefix": "(",
-                            "suffix": ")"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Supercosmic",
-                            "details": "Bitpanic, CD / Download, Casa Berenice Recordings, 2022"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "In My Room: Live Electronic Ensemble Music by Mark Trayle",
-                            "details": "The Hub and Bitpanic, CD / Download, Artifact Recordings, 2022"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "yon ti vizit",
-                            "details": "Elizabeth Chin / Anetude \"Zaza\" Geffrard / Casey Anderson, LP / Download, a wave press, 2020"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Bent Duo Presents ghostses by Casey Anderson",
-                            "details": "Bent Duo, CD, a wave press, 2019"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "RADIOS",
-                            "details": "Casey Anderson, CD, a wave press, 2016"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Five Lines",
-                            "details": "Casey Anderson / Jason Kahn / Günter Müller / Norbert Möslang / Mark Trayle, CD, Mikroton Recordings & Publishing, Ltd., 2014"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "west coast soundings",
-                            "details": "Gratkowski / Mense / Lukoszevieze / Josel / koch, 2xCD, Edition Wandelweiser Records, 2014"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "rounds",
-                            "details": "the wulf., LP, the wulf. records, 2013"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "mothlight",
-                            "details": "Casey Anderson, CS, Khalija, 2013"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "solo/many",
-                            "details": "Casey Anderson, CS, Tape Room, 2013"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "6 Guitars",
-                            "details": "LP, with Thomas Wincek / Collections of Colonies of Bees, Table of the Elements, 2007"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Segni",
-                            "details": "EP, with Thomas Wincek / All Tiny Creatures, Hometapes, 2006"
+                            "title": "POSSIBLE DUST",
+                            "role": "Composer"
                         }
                     ]
+                },
+                {
+                    "title": "rounds",
+                    "artists": [
+                        "the wulf."
+                    ],
+                    "formats": [
+                        "LP"
+                    ],
+                    "record_label": "the wulf. records",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2013
+                        }
+                    },
+                    "works": [
+                        {
+                            "title": "possible rounds",
+                            "role": "Composer"
+                        }
+                    ]
+                },
+                {
+                    "title": "mothlight",
+                    "artists": [
+                        "Casey Anderson"
+                    ],
+                    "formats": [
+                        "CS"
+                    ],
+                    "record_label": "Khalija",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2013
+                        }
+                    }
+                },
+                {
+                    "title": "solo/many",
+                    "artists": [
+                        "Casey Anderson"
+                    ],
+                    "formats": [
+                        "CS"
+                    ],
+                    "record_label": "Tape Room",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2013
+                        }
+                    }
+                },
+                {
+                    "title": "6 Guitars",
+                    "artists": [
+                        "Collections of Colonies of Bees"
+                    ],
+                    "collaborators": [
+                        "Thomas Wincek"
+                    ],
+                    "formats": [
+                        "LP"
+                    ],
+                    "record_label": "Table of the Elements",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2007
+                        }
+                    },
+                    "role": "Score co-creator"
+                },
+                {
+                    "title": "Segni",
+                    "artists": [
+                        "All Tiny Creatures"
+                    ],
+                    "collaborators": [
+                        "Thomas Wincek"
+                    ],
+                    "formats": [
+                        "EP"
+                    ],
+                    "record_label": "Hometapes",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2006
+                        }
+                    },
+                    "role": "Composer"
                 }
             ]
         },

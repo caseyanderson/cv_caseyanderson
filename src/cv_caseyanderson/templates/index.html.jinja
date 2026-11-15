@@ -18,7 +18,7 @@
                 <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
             </p>
         </header>
-        {% for section in sections %}
+        {% for section in sections if section.id not in ["selected-projects-production", "technology"] %}
         <div id="{{ section.id }}">
             <h2>{{ section.title }}</h2>
 
@@ -107,6 +107,14 @@
                     {% for entry in section.entries %}
                     <li>
                         {{- cv.render_publication_entry(entry) -}}
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% elif section.id == "selected-discography" %}
+                <ul class="nobullets">
+                    {% for entry in section.entries %}
+                    <li>
+                        {{- cv.render_discography_entry(entry) -}}
                     </li>
                     {% endfor %}
                 </ul>
