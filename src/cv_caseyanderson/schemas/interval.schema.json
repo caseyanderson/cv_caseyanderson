@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:cv-caseyanderson:schema:interval",
+  "title": "CV date interval",
+  "type": "object",
+  "required": [
+    "kind",
+    "start",
+    "end"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "interval"
+    },
+    "start": {
+      "$ref": "urn:cv-caseyanderson:schema:date-component"
+    },
+    "end": {
+      "anyOf": [
+        {
+          "$ref": "urn:cv-caseyanderson:schema:date-component"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

@@ -12,13 +12,6 @@ type JsonValue = (
 )
 
 
-_TEACHING_REQUIRED_KEYS = {
-    "institution",
-    "role",
-    "location",
-    "time",
-}
-
 _GUEST_LECTURE_REQUIRED_KEYS = {
     "institution",
     "title",
@@ -54,32 +47,11 @@ _VALID_SEASONS = {
     "winter",
 }
 
-_INTERVAL_KEYS = {
-    "kind",
-    "start",
-    "end",
-}
 
 _DATES_KEYS = {
     "kind",
     "values",
 }
-
-
-def _is_nonempty_string_list(
-    value: object,
-) -> bool:
-    if not isinstance(value, list):
-        return False
-
-    string_values = cast(
-        list[object],
-        value,
-    )
-
-    return len(string_values) > 0 and all(
-        isinstance(item, str) for item in string_values
-    )
 
 
 def _is_string_list(
@@ -94,18 +66,6 @@ def _is_string_list(
     )
 
     return all(isinstance(item, str) for item in string_values)
-
-
-def _has_valid_teaching_text_fields(
-    entry: dict[str, object],
-) -> bool:
-    return all(
-        isinstance(entry.get(key), str)
-        for key in (
-            "institution",
-            "location",
-        )
-    )
 
 
 def _has_valid_guest_lecture_text_fields(
@@ -206,31 +166,6 @@ def _has_valid_time(time_value: object) -> bool:
     return _is_valid_date_component(date_value)
 
 
-def _is_valid_interval(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    interval = cast(
-        dict[str, object],
-        value,
-    )
-
-    if set(interval.keys()) != _INTERVAL_KEYS:
-        return False
-
-    if interval.get("kind") != "interval":
-        return False
-
-    if not _is_valid_date_component(interval.get("start")):
-        return False
-
-    end = interval.get("end")
-
-    return end is None or _is_valid_date_component(end)
-
-
 def _is_valid_dates(
     value: object,
 ) -> bool:
@@ -263,35 +198,10 @@ def _is_valid_dates(
     )
 
 
-def _is_valid_teaching_time(
-    value: object,
-) -> bool:
-    return _is_valid_interval(value) or _is_valid_dates(value)
-
-
 def _is_valid_guest_lecture_time(
     value: object,
 ) -> bool:
     return _has_valid_time(value) or _is_valid_dates(value)
-
-
-def _is_valid_teaching_entry(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    entry = cast(
-        dict[str, object],
-        value,
-    )
-
-    return (
-        set(entry.keys()) == _TEACHING_REQUIRED_KEYS
-        and _has_valid_teaching_text_fields(entry)
-        and _is_nonempty_string_list(entry.get("role"))
-        and _is_valid_teaching_time(entry.get("time"))
-    )
 
 
 def _is_valid_guest_lecture_entry(
@@ -351,25 +261,12 @@ def _validate_professional_section(section: dict[str, object]) -> None:
     )
 
 
-def _validate_teaching_section(
-    section: dict[str, object],
-) -> None:
-    entries_value = section.get("entries")
-
-    if not isinstance(entries_value, list):
-        raise TypeError("Teaching entries must be a list")
-
-    entries = cast(
-        list[object],
-        entries_value,
+def _validate_teaching_section(section: dict[str, object]) -> None:
+    _validate_section_schema(
+        section,
+        "teaching.schema.json",
+        "Teaching",
     )
-
-    if not entries:
-        raise ValueError("Teaching entries must not be empty")
-
-    for index, entry in enumerate(entries):
-        if not _is_valid_teaching_entry(entry):
-            raise ValueError("Invalid Teaching entry " + str(index))
 
 
 def _validate_guest_lecture_section(
@@ -408,19 +305,18 @@ def _validate_section_schema(
         dict[str, object],
         json.loads((schema_directory / schema_filename).read_text(encoding="utf-8")),
     )
-    date_schema = cast(
-        dict[str, object],
-        json.loads(
-            (schema_directory / "date-component.schema.json").read_text(
-                encoding="utf-8"
-            )
-        ),
-    )
-    registry = Registry[Schema]().with_resource(
-        cast(str, date_schema["$id"]),
-        Resource.from_contents(date_schema),
-    )
-
+    registry = Registry[Schema]()
+    for shared_filename in ("date-component.schema.json", "interval.schema.json"):
+        shared_schema = cast(
+            dict[str, object],
+            json.loads(
+                (schema_directory / shared_filename).read_text(encoding="utf-8")
+            ),
+        )
+        registry = registry.with_resource(
+            cast(str, shared_schema["$id"]),
+            Resource.from_contents(shared_schema),
+        )
     validator = cast(
         Validator,
         Draft202012Validator(
