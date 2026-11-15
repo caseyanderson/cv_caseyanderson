@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Education",
+  "type": "object",
+  "required": [
+    "id",
+    "entries"
+  ],
+  "properties": {
+    "id": {
+      "const": "education"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "degree",
+          "major",
+          "institution",
+          "location",
+          "time"
+        ],
+        "properties": {
+          "degree": {
+            "type": "string"
+          },
+          "major": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "institution": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "time": {
+            "type": "object",
+            "required": [
+              "kind",
+              "value"
+            ],
+            "properties": {
+              "kind": {
+                "const": "date"
+              },
+              "value": {
+                "$ref": "#/$defs/dateComponent"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "dateComponent": {
+      "type": "object",
+      "required": [
+        "year"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "year": {
+          "type": "integer"
+        },
+        "month": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 12
+        },
+        "day": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 31
+        },
+        "season": {
+          "enum": [
+            "fall",
+            "spring",
+            "summer",
+            "winter",
+            null
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "month"
+            ],
+            "properties": {
+              "month": {
+                "type": "integer"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "season": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "day"
+            ],
+            "properties": {
+              "day": {
+                "type": "integer"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "month"
+            ],
+            "properties": {
+              "month": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

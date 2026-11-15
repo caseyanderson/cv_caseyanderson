@@ -9,13 +9,6 @@ type JsonValue = (
     str | int | float | bool | None | list[JsonValue] | dict[str, JsonValue]
 )
 
-_EDUCATION_REQUIRED_KEYS = {
-    "degree",
-    "major",
-    "institution",
-    "location",
-    "time",
-}
 
 _PROFESSIONAL_REQUIRED_KEYS = {
     "organization",
@@ -106,19 +99,6 @@ def _is_string_list(
     )
 
     return all(isinstance(item, str) for item in string_values)
-
-
-def _has_valid_education_text_fields(
-    entry: dict[str, object],
-) -> bool:
-    return all(
-        isinstance(entry.get(key), str)
-        for key in (
-            "degree",
-            "institution",
-            "location",
-        )
-    )
 
 
 def _has_valid_professional_text_fields(
@@ -312,25 +292,6 @@ def _is_valid_guest_lecture_time(
     return _has_valid_time(value) or _is_valid_dates(value)
 
 
-def _is_valid_education_entry(
-    entry_value: object,
-) -> bool:
-    if not isinstance(entry_value, dict):
-        return False
-
-    entry = cast(
-        dict[str, object],
-        entry_value,
-    )
-
-    return (
-        _EDUCATION_REQUIRED_KEYS.issubset(entry.keys())
-        and _has_valid_education_text_fields(entry)
-        and _is_nonempty_string_list(entry.get("major"))
-        and _has_valid_time(entry.get("time"))
-    )
-
-
 def _is_valid_professional_entry(
     value: object,
 ) -> bool:
@@ -410,25 +371,12 @@ def _is_valid_conference_entry(
     )
 
 
-def _validate_education_section(
-    section: dict[str, object],
-) -> None:
-    entries_value = section.get("entries")
-
-    if not isinstance(entries_value, list):
-        raise TypeError("Education entries must be a list")
-
-    entries = cast(
-        list[object],
-        entries_value,
+def _validate_education_section(section: dict[str, object]) -> None:
+    _validate_section_schema(
+        section,
+        "education.schema.json",
+        "Education",
     )
-
-    if not entries:
-        raise ValueError("Education entries must not be empty")
-
-    for index, entry in enumerate(entries):
-        if not _is_valid_education_entry(entry):
-            raise ValueError("Invalid Education entry " + str(index))
 
 
 def _validate_professional_section(
@@ -496,16 +444,15 @@ def _validate_guest_lecture_section(
             )
 
 
-def _validate_awards_events_section(
+def _validate_section_schema(
     section: dict[str, object],
+    schema_filename: str,
+    section_name: str,
 ) -> None:
     if not isinstance(section.get("entries"), list):
-        raise TypeError(
-            "Selected Awards, Distinctions, and Events entries must be a list"
-        )
+        raise TypeError(f"{section_name} entries must be a list")
 
-    schema_path = Path(__file__).parent / "schemas" / "awards-events.schema.json"
-
+    schema_path = Path(__file__).parent / "schemas" / schema_filename
     schema = cast(
         dict[str, object],
         json.loads(schema_path.read_text(encoding="utf-8")),
@@ -513,10 +460,7 @@ def _validate_awards_events_section(
 
     validator = cast(
         Validator,
-        Draft202012Validator(
-            schema,
-            format_checker=FormatChecker(),
-        ),
+        Draft202012Validator(schema, format_checker=FormatChecker()),
     )
 
     instance = cast(dict[str, JsonValue], section)
@@ -524,14 +468,17 @@ def _validate_awards_events_section(
 
     if error is not None:
         error_path = ".".join(str(component) for component in error.absolute_path)
-
         raise ValueError(
-            "Invalid Selected Awards, Distinctions, and Events"
-            + " at "
-            + (error_path or "section")
-            + ": "
-            + error.message
+            f"Invalid {section_name} at {error_path or 'section'}: {error.message}"
         )
+
+
+def _validate_awards_events_section(section: dict[str, object]) -> None:
+    _validate_section_schema(
+        section,
+        "awards-events.schema.json",
+        "Selected Awards, Distinctions, and Events",
+    )
 
 
 def _validate_conference_section(
