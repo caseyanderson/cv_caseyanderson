@@ -12,133 +12,6 @@ type JsonValue = (
 )
 
 
-_CONFERENCE_REQUIRED_KEYS = {
-    "title",
-    "conference",
-    "collaborators",
-    "location",
-    "time",
-}
-
-_DATE_COMPONENT_KEYS = {
-    "year",
-    "month",
-    "day",
-    "season",
-}
-
-_VALID_SEASONS = {
-    "spring",
-    "summer",
-    "fall",
-    "winter",
-}
-
-
-def _is_string_list(
-    value: object,
-) -> bool:
-    if not isinstance(value, list):
-        return False
-
-    string_values = cast(
-        list[object],
-        value,
-    )
-
-    return all(isinstance(item, str) for item in string_values)
-
-
-def _is_valid_date_component(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    component = cast(
-        dict[str, object],
-        value,
-    )
-
-    if not component.keys() <= _DATE_COMPONENT_KEYS:
-        return False
-
-    if type(component.get("year")) is not int:
-        return False
-
-    month = component.get("month")
-    day = component.get("day")
-    season = component.get("season")
-
-    if month is not None and season is not None:
-        return False
-
-    if month is not None:
-        if type(month) is not int:
-            return False
-
-        if not 1 <= month <= 12:
-            return False
-
-    if day is not None:
-        if month is None:
-            return False
-
-        if type(day) is not int:
-            return False
-
-        if not 1 <= day <= 31:
-            return False
-
-    if season is not None:
-        if not isinstance(season, str):
-            return False
-
-        if season not in _VALID_SEASONS:
-            return False
-
-    return True
-
-
-def _has_valid_time(time_value: object) -> bool:
-    if not isinstance(time_value, dict):
-        return False
-
-    time_data = cast(
-        dict[str, object],
-        time_value,
-    )
-
-    if time_data.get("kind") != "date":
-        return False
-
-    date_value = time_data.get("value")
-
-    return _is_valid_date_component(date_value)
-
-
-def _is_valid_conference_entry(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    entry = cast(
-        dict[str, object],
-        value,
-    )
-
-    return (
-        set(entry.keys()) == _CONFERENCE_REQUIRED_KEYS
-        and all(
-            isinstance(entry.get(key), str)
-            for key in ("title", "conference", "location")
-        )
-        and _is_string_list(entry.get("collaborators"))
-        and _has_valid_time(entry.get("time"))
-    )
-
-
 def _validate_education_section(section: dict[str, object]) -> None:
     _validate_section_schema(
         section,
@@ -222,25 +95,12 @@ def _validate_awards_events_section(section: dict[str, object]) -> None:
     )
 
 
-def _validate_conference_section(
-    section: dict[str, object],
-) -> None:
-    entries_value = section.get("entries")
-
-    if not isinstance(entries_value, list):
-        raise TypeError("Conferences entries must be a list")
-
-    entries = cast(
-        list[object],
-        entries_value,
+def _validate_conference_section(section: dict[str, object]) -> None:
+    _validate_section_schema(
+        section,
+        "conferences.schema.json",
+        "Conferences",
     )
-
-    if not entries:
-        raise ValueError("Conferences entries must not be empty")
-
-    for index, entry in enumerate(entries):
-        if not _is_valid_conference_entry(entry):
-            raise ValueError("Invalid Conferences entry " + str(index))
 
 
 def _validate_cv(
