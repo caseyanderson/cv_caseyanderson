@@ -4,18 +4,13 @@ from typing import cast
 
 from jsonschema import Draft202012Validator, FormatChecker
 from jsonschema.protocols import Validator
+from referencing import Registry, Resource
+from referencing.jsonschema import Schema
 
 type JsonValue = (
     str | int | float | bool | None | list[JsonValue] | dict[str, JsonValue]
 )
 
-
-_PROFESSIONAL_REQUIRED_KEYS = {
-    "organization",
-    "role",
-    "location",
-    "time",
-}
 
 _TEACHING_REQUIRED_KEYS = {
     "institution",
@@ -99,18 +94,6 @@ def _is_string_list(
     )
 
     return all(isinstance(item, str) for item in string_values)
-
-
-def _has_valid_professional_text_fields(
-    entry: dict[str, object],
-) -> bool:
-    return all(
-        isinstance(entry.get(key), str)
-        for key in (
-            "organization",
-            "location",
-        )
-    )
 
 
 def _has_valid_teaching_text_fields(
@@ -292,25 +275,6 @@ def _is_valid_guest_lecture_time(
     return _has_valid_time(value) or _is_valid_dates(value)
 
 
-def _is_valid_professional_entry(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    entry = cast(
-        dict[str, object],
-        value,
-    )
-
-    return (
-        set(entry.keys()) == _PROFESSIONAL_REQUIRED_KEYS
-        and _has_valid_professional_text_fields(entry)
-        and _is_nonempty_string_list(entry.get("role"))
-        and _is_valid_interval(entry.get("time"))
-    )
-
-
 def _is_valid_teaching_entry(
     value: object,
 ) -> bool:
@@ -379,25 +343,12 @@ def _validate_education_section(section: dict[str, object]) -> None:
     )
 
 
-def _validate_professional_section(
-    section: dict[str, object],
-) -> None:
-    entries_value = section.get("entries")
-
-    if not isinstance(entries_value, list):
-        raise TypeError("Professional Experience entries must be a list")
-
-    entries = cast(
-        list[object],
-        entries_value,
+def _validate_professional_section(section: dict[str, object]) -> None:
+    _validate_section_schema(
+        section,
+        "professional-experience.schema.json",
+        "Professional Experience",
     )
-
-    if not entries:
-        raise ValueError("Professional Experience entries must not be empty")
-
-    for index, entry in enumerate(entries):
-        if not _is_valid_professional_entry(entry):
-            raise ValueError("Invalid Professional Experience entry " + str(index))
 
 
 def _validate_teaching_section(
@@ -452,17 +403,32 @@ def _validate_section_schema(
     if not isinstance(section.get("entries"), list):
         raise TypeError(f"{section_name} entries must be a list")
 
-    schema_path = Path(__file__).parent / "schemas" / schema_filename
+    schema_directory = Path(__file__).parent / "schemas"
     schema = cast(
         dict[str, object],
-        json.loads(schema_path.read_text(encoding="utf-8")),
+        json.loads((schema_directory / schema_filename).read_text(encoding="utf-8")),
+    )
+    date_schema = cast(
+        dict[str, object],
+        json.loads(
+            (schema_directory / "date-component.schema.json").read_text(
+                encoding="utf-8"
+            )
+        ),
+    )
+    registry = Registry[Schema]().with_resource(
+        cast(str, date_schema["$id"]),
+        Resource.from_contents(date_schema),
     )
 
     validator = cast(
         Validator,
-        Draft202012Validator(schema, format_checker=FormatChecker()),
+        Draft202012Validator(
+            schema,
+            format_checker=FormatChecker(),
+            registry=registry,
+        ),
     )
-
     instance = cast(dict[str, JsonValue], section)
     error = next(validator.iter_errors(instance), None)
 

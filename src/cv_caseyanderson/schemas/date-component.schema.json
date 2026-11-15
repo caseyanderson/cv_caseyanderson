@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:cv-caseyanderson:schema:date-component",
+  "title": "CV date component",
+  "type": "object",
+  "required": [
+    "year"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "year": {
+      "type": "integer"
+    },
+    "month": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 12
+    },
+    "day": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 31
+    },
+    "season": {
+      "enum": [
+        "fall",
+        "spring",
+        "summer",
+        "winter",
+        null
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "month"
+        ],
+        "properties": {
+          "month": {
+            "type": "integer"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "season": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "day"
+        ],
+        "properties": {
+          "day": {
+            "type": "integer"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "month"
+        ],
+        "properties": {
+          "month": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  ]
+}
