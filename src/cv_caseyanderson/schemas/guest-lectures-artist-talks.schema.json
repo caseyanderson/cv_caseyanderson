@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Guest Lectures & Artist Talks",
+  "type": "object",
+  "required": [
+    "id",
+    "entries"
+  ],
+  "properties": {
+    "id": {
+      "const": "guest-lectures-artist-talks"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "institution",
+          "title",
+          "context",
+          "location",
+          "time"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "institution": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "context": {
+            "type": "object",
+            "required": [
+              "name",
+              "host"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "host": {
+                "type": "string"
+              }
+            }
+          },
+          "location": {
+            "type": "string"
+          },
+          "time": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/date"
+              },
+              {
+                "$ref": "#/$defs/dates"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "date": {
+      "type": "object",
+      "required": [
+        "kind",
+        "value"
+      ],
+      "properties": {
+        "kind": {
+          "const": "date"
+        },
+        "value": {
+          "$ref": "urn:cv-caseyanderson:schema:date-component"
+        }
+      }
+    },
+    "dates": {
+      "type": "object",
+      "required": [
+        "kind",
+        "values"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "dates"
+        },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "urn:cv-caseyanderson:schema:date-component"
+          }
+        }
+      }
+    }
+  }
+}

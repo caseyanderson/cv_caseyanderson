@@ -12,19 +12,6 @@ type JsonValue = (
 )
 
 
-_GUEST_LECTURE_REQUIRED_KEYS = {
-    "institution",
-    "title",
-    "context",
-    "location",
-    "time",
-}
-
-_GUEST_LECTURE_CONTEXT_REQUIRED_KEYS = {
-    "name",
-    "host",
-}
-
 _CONFERENCE_REQUIRED_KEYS = {
     "title",
     "conference",
@@ -48,12 +35,6 @@ _VALID_SEASONS = {
 }
 
 
-_DATES_KEYS = {
-    "kind",
-    "values",
-}
-
-
 def _is_string_list(
     value: object,
 ) -> bool:
@@ -66,36 +47,6 @@ def _is_string_list(
     )
 
     return all(isinstance(item, str) for item in string_values)
-
-
-def _has_valid_guest_lecture_text_fields(
-    entry: dict[str, object],
-) -> bool:
-    return all(
-        isinstance(entry.get(key), str)
-        for key in (
-            "institution",
-            "title",
-            "location",
-        )
-    )
-
-
-def _is_valid_guest_lecture_context(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    context = cast(
-        dict[str, object],
-        value,
-    )
-
-    return set(context.keys()) == _GUEST_LECTURE_CONTEXT_REQUIRED_KEYS and all(
-        isinstance(context.get(key), str)
-        for key in _GUEST_LECTURE_CONTEXT_REQUIRED_KEYS
-    )
 
 
 def _is_valid_date_component(
@@ -166,63 +117,6 @@ def _has_valid_time(time_value: object) -> bool:
     return _is_valid_date_component(date_value)
 
 
-def _is_valid_dates(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    dates_data = cast(
-        dict[str, object],
-        value,
-    )
-
-    if set(dates_data.keys()) != _DATES_KEYS:
-        return False
-
-    if dates_data.get("kind") != "dates":
-        return False
-
-    values_value = dates_data.get("values")
-
-    if not isinstance(values_value, list):
-        return False
-
-    date_values = cast(
-        list[object],
-        values_value,
-    )
-
-    return len(date_values) > 0 and all(
-        _is_valid_date_component(date_value) for date_value in date_values
-    )
-
-
-def _is_valid_guest_lecture_time(
-    value: object,
-) -> bool:
-    return _has_valid_time(value) or _is_valid_dates(value)
-
-
-def _is_valid_guest_lecture_entry(
-    value: object,
-) -> bool:
-    if not isinstance(value, dict):
-        return False
-
-    entry = cast(
-        dict[str, object],
-        value,
-    )
-
-    return (
-        set(entry.keys()) == _GUEST_LECTURE_REQUIRED_KEYS
-        and _has_valid_guest_lecture_text_fields(entry)
-        and _is_valid_guest_lecture_context(entry.get("context"))
-        and _is_valid_guest_lecture_time(entry.get("time"))
-    )
-
-
 def _is_valid_conference_entry(
     value: object,
 ) -> bool:
@@ -269,27 +163,12 @@ def _validate_teaching_section(section: dict[str, object]) -> None:
     )
 
 
-def _validate_guest_lecture_section(
-    section: dict[str, object],
-) -> None:
-    entries_value = section.get("entries")
-
-    if not isinstance(entries_value, list):
-        raise TypeError("Guest Lectures & Artist Talks entries must be a list")
-
-    entries = cast(
-        list[object],
-        entries_value,
+def _validate_guest_lecture_section(section: dict[str, object]) -> None:
+    _validate_section_schema(
+        section,
+        "guest-lectures-artist-talks.schema.json",
+        "Guest Lectures & Artist Talks",
     )
-
-    if not entries:
-        raise ValueError("Guest Lectures & Artist Talks entries must not be empty")
-
-    for index, entry in enumerate(entries):
-        if not _is_valid_guest_lecture_entry(entry):
-            raise ValueError(
-                "Invalid Guest Lectures & Artist Talks entry " + str(index)
-            )
 
 
 def _validate_section_schema(
