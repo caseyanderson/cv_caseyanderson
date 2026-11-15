@@ -183,6 +183,14 @@
     {{- ", " }}{{ render_date_component(entry.time.value) }}
 {%- endmacro %}
 
+{% macro render_publication_entry(entry) -%}
+    <a href="{{ entry.url }}" target="_blank" rel="noopener">
+        {{- entry.label -}}
+    </a>
+    {{- " " }}{{ entry.publication }}
+    {{- ", " }}{{ render_date_component(entry.time.value) }}
+{%- endmacro %}
+
 {% macro render_entry(entry) -%}
     {%- if entry.type == "boxed" -%}
         {{ entry.prefix | default("") -}}

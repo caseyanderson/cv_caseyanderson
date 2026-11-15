@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Publications",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "entries"
+  ],
+  "properties": {
+    "id": {
+      "const": "publications"
+    },
+    "title": {
+      "type": "string"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "label",
+          "url",
+          "publication",
+          "time"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "const": "link"
+          },
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "publication": {
+            "type": "string"
+          },
+          "time": {
+            "type": "object",
+            "required": [
+              "kind",
+              "value"
+            ],
+            "properties": {
+              "kind": {
+                "const": "date"
+              },
+              "value": {
+                "$ref": "urn:cv-caseyanderson:schema:date-component"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

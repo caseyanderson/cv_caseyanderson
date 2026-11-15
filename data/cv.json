@@ -1694,32 +1694,47 @@
         {
             "id": "publications",
             "title": "Publications",
-            "groups": [
+            "entries": [
                 {
-                    "title": null,
-                    "classes": [
-                        "nobullets"
-                    ],
-                    "entries": [
-                        {
-                            "type": "link",
-                            "label": "Sonic Commentary: Language as a Wilderness Contributors' Notes; Page 7, ghostses",
-                            "url": "https://www.mitpressjournals.org/doi/abs/10.1162/lmj_a_01078",
-                            "details": "Leonardo Music Journal, Vol. 29 Audio Companion, December 2019"
-                        },
-                        {
-                            "type": "link",
-                            "label": "Repurpose, Remix, Bend: Piloting A Locally Defined Technology Curriculum",
-                            "url": "https://www.americananthropologist.org/2018/04/10/repurpose-remix-bend-piloting-a-locally-defined-technology-curriculum/",
-                            "details": "American Anthropologist, April 10th 2018"
-                        },
-                        {
-                            "type": "link",
-                            "label": "Faithfully Re-presenting the Outside World",
-                            "url": "https://www.newmusicbox.org/articles/faithfully-re-presenting-the-outside-world/",
-                            "details": "NewMusicBox, June 12th 2013"
+                    "type": "link",
+                    "label": "Sonic Commentary: Language as a Wilderness Contributors' Notes; Page 7, ghostses",
+                    "url": "https://www.mitpressjournals.org/doi/abs/10.1162/lmj_a_01078",
+                    "publication": "Leonardo Music Journal, Vol. 29 Audio Companion",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2019,
+                            "month": 12
                         }
-                    ]
+                    }
+                },
+                {
+                    "type": "link",
+                    "label": "Repurpose, Remix, Bend: Piloting A Locally Defined Technology Curriculum",
+                    "url": "https://www.americananthropologist.org/2018/04/10/repurpose-remix-bend-piloting-a-locally-defined-technology-curriculum/",
+                    "publication": "American Anthropologist",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2018,
+                            "month": 4,
+                            "day": 10
+                        }
+                    }
+                },
+                {
+                    "type": "link",
+                    "label": "Faithfully Re-presenting the Outside World",
+                    "url": "https://www.newmusicbox.org/articles/faithfully-re-presenting-the-outside-world/",
+                    "publication": "NewMusicBox",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2013,
+                            "month": 6,
+                            "day": 12
+                        }
+                    }
                 }
             ]
         },

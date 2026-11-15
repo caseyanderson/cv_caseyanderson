@@ -51,7 +51,6 @@ def _validate_section_schema(
 ) -> None:
     if not isinstance(section.get("entries"), list):
         raise TypeError(f"{section_name} entries must be a list")
-
     schema_directory = Path(__file__).parent / "schemas"
     schema = cast(
         dict[str, object],
@@ -103,6 +102,14 @@ def _validate_conference_section(section: dict[str, object]) -> None:
     )
 
 
+def _validate_publications_section(section: dict[str, object]) -> None:
+    _validate_section_schema(
+        section,
+        "publications.schema.json",
+        "Publications",
+    )
+
+
 def _validate_cv(
     cv: dict[str, object],
 ) -> None:
@@ -122,6 +129,7 @@ def _validate_cv(
     guest_lecture_section: dict[str, object] | None = None
     awards_events_section: dict[str, object] | None = None
     conference_section: dict[str, object] | None = None
+    publications_section: dict[str, object] | None = None
 
     for section_value in sections:
         if not isinstance(section_value, dict):
@@ -176,6 +184,12 @@ def _validate_cv(
 
             conference_section = section
 
+        elif section_id == "publications":
+            if publications_section is not None:
+                raise ValueError("CV must contain only one Publications section")
+
+            publications_section = section
+
     if education_section is None:
         raise ValueError("CV must contain an Education section")
 
@@ -196,6 +210,9 @@ def _validate_cv(
     if conference_section is None:
         raise ValueError("CV must contain a Conferences section")
 
+    if publications_section is None:
+        raise ValueError("CV must contain a Publications section")
+
     _validate_education_section(education_section)
 
     _validate_professional_section(professional_section)
@@ -207,6 +224,8 @@ def _validate_cv(
     _validate_awards_events_section(awards_events_section)
 
     _validate_conference_section(conference_section)
+
+    _validate_publications_section(publications_section)
 
 
 def load_cv(path: Path) -> dict[str, object]:
