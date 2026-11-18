@@ -10,7 +10,7 @@
 </time>
 {%- endmacro %}
 
-{% macro render_date_component(date) -%}
+{% macro render_date_component(date, show_day=true) -%}
     {%- set month_names = [
         "January",
         "February",
@@ -29,7 +29,7 @@
     <time datetime="{{ date.year }}{% if date.month is defined %}-{{ "%02d" | format(date.month) }}{% endif %}{% if date.day is defined %}-{{ "%02d" | format(date.day) }}{% endif %}">
         {%- if date.month is defined -%}
             {{ month_names[date.month - 1] }}
-            {%- if date.day is defined -%}
+            {%- if show_day and date.day is defined -%}
                 {{ " " }}{{ date.day }}{{ ", " }}
             {%- else -%}
                 {{ " " }}
@@ -41,14 +41,14 @@
     </time>
 {%- endmacro %}
 
-{% macro render_interval(interval) -%}
+{% macro render_interval(interval, show_day=true) -%}
     <span class="time-interval">
-        {{- render_date_component(interval.start) -}}
+        {{- render_date_component(interval.start, show_day=show_day) -}}
         {{ " - " }}
         {%- if interval.end is none -%}
             present
         {%- else -%}
-            {{ render_date_component(interval.end) }}
+            {{ render_date_component(interval.end, show_day=show_day) }}
         {%- endif -%}
     </span>
 {%- endmacro %}
@@ -70,7 +70,7 @@
     </span>
     {{- ", " }}{{ entry.role | join(", ") }}
     {{- ", " }}{{ entry.location }}
-    {{- ", " }}{{ render_interval(entry.time) }}
+    {{- ", " }}{{ render_interval(entry.time, show_day=false) }}
 {%- endmacro %}
 
 {% macro render_teaching_entry(entry) -%}
@@ -217,5 +217,4 @@
         {{ entry.text }}
     {%- endif -%}
 {%- endmacro %}
-
 
