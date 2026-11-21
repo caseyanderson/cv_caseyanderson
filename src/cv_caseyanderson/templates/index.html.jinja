@@ -25,7 +25,7 @@
             </p>
 
         </header>
-        {% for section in sections if section.id != "technology" %}
+        {% for section in sections %}
         <div id="{{ section.id }}">
             <h2>{{ section.title }}</h2>
 
@@ -130,6 +130,14 @@
                     {% for entry in section.entries %}
                     <li>
                         {{- cv.render_design_production_entry(entry) -}}
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% elif section.id == "technology" %}
+                <ul class="nobullets">
+                    {% for entry in section.entries %}
+                    <li>
+                        {{- cv.render_technology_entry(entry) -}}
                     </li>
                     {% endfor %}
                 </ul>

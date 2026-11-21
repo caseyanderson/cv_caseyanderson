@@ -247,6 +247,17 @@
     {%- endif -%}
 {%- endmacro %}
 
+{% macro render_technology_entry(entry) -%}
+    <span class="boxed">{{ entry.category }}</span>
+    {%- if entry.technologies -%}
+        {{- " " -}}
+        {%- for technology in entry.technologies -%}
+            {%- if not loop.first -%}{{ ", " }}{%- endif -%}
+            {{ technology.name }}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endmacro %}
+
 {% macro render_entry(entry) -%}
     {%- if entry.type == "boxed" -%}
         {{ entry.prefix | default("") -}}

@@ -2334,62 +2334,166 @@
         {
             "id": "technology",
             "title": "Technology",
-            "groups": [
+            "entries": [
                 {
-                    "title": null,
-                    "classes": [
-                        "columns"
-                    ],
-                    "entries": [
+                    "category": "Programming",
+                    "technologies": [
                         {
-                            "type": "plain",
-                            "text": "SuperCollider, Max/MSP, Max for Live"
+                            "name": "SuperCollider",
+                            "primary": true
                         },
                         {
-                            "type": "plain",
-                            "text": "Python, JavaScript, Ruby"
+                            "name": "Python",
+                            "primary": true
                         },
                         {
-                            "type": "plain",
-                            "text": "Electronics, Circuit Design, PCB Design and Manufacturing"
-                        },
-                        {
-                            "type": "plain",
-                            "text": "Physical Computing (ESP32, Arduino)"
-                        },
-                        {
-                            "type": "plain",
-                            "text": "Embedded Systems (Raspberry Pi, etc.)"
-                        },
-                        {
-                            "type": "plain",
-                            "text": "Rapid Prototyping (CNC, 3D Printers, Laser Cutters)"
-                        },
-                        {
-                            "type": "plain",
-                            "text": "Digital Audio Workstations (Reaper, Ableton Live)"
-                        },
-                        {
-                            "type": "plain",
-                            "text": "Digital Signal Processing and Sound Design"
-                        },
-                        {
-                            "type": "plain",
-                            "text": "Field Recording"
-                        },
-                        {
-                            "type": "plain",
-                            "text": "Version Control (Git)"
-                        },
-                        {
-                            "type": "plain",
-                            "text": "HTML, SASS/SCSS/CSS, Markdown"
-                        },
-                        {
-                            "type": "plain",
-                            "text": "Linux (Ubuntu, Debian), Windows, macOS"
+                            "name": "JavaScript",
+                            "proficiency": "intermediate"
                         }
                     ]
+                },
+                {
+                    "category": "Audio Programming, DSP & Sound Design",
+                    "technologies": [
+                        {
+                            "name": "SuperCollider",
+                            "primary": true
+                        },
+                        {
+                            "name": "Max/MSP"
+                        },
+                        {
+                            "name": "Max for Live"
+                        }
+                    ]
+                },
+                {
+                    "category": "Digital Audio Workstations",
+                    "technologies": [
+                        {
+                            "name": "Reaper"
+                        },
+                        {
+                            "name": "Ableton Live"
+                        }
+                    ]
+                },
+                {
+                    "category": "Music Copying, Notation & Score Preparation",
+                    "technologies": [
+                        {
+                            "name": "Sibelius"
+                        },
+                        {
+                            "name": "LilyPond"
+                        }
+                    ],
+                    "description": "Professional music-copying experience."
+                },
+                {
+                    "category": "Natural Language Processing",
+                    "technologies": [
+                        {
+                            "name": "NLTK"
+                        }
+                    ]
+                },
+                {
+                    "category": "Web Development",
+                    "technologies": [
+                        {
+                            "name": "HTML"
+                        },
+                        {
+                            "name": "CSS/Sass"
+                        },
+                        {
+                            "name": "Jinja"
+                        }
+                    ]
+                },
+                {
+                    "category": "Structured Data",
+                    "technologies": [
+                        {
+                            "name": "JSON"
+                        }
+                    ]
+                },
+                {
+                    "category": "Version Control",
+                    "technologies": [
+                        {
+                            "name": "Git"
+                        }
+                    ]
+                },
+                {
+                    "category": "Cross-platform Development",
+                    "technologies": [
+                        {
+                            "name": "Windows"
+                        },
+                        {
+                            "name": "macOS"
+                        },
+                        {
+                            "name": "Linux"
+                        }
+                    ],
+                    "description": "Develops software across Windows, macOS, and Linux, including Ubuntu and Debian."
+                },
+                {
+                    "category": "Physical Computing",
+                    "technologies": [
+                        {
+                            "name": "ESP32"
+                        },
+                        {
+                            "name": "Arduino"
+                        }
+                    ]
+                },
+                {
+                    "category": "Embedded Systems",
+                    "technologies": [
+                        {
+                            "name": "Raspberry Pi"
+                        }
+                    ],
+                    "description": "Developed dedicated installations, instruments, and controllers using Raspberry Pi."
+                },
+                {
+                    "category": "Digital Fabrication",
+                    "technologies": [
+                        {
+                            "name": "CNC"
+                        },
+                        {
+                            "name": "3D printing"
+                        },
+                        {
+                            "name": "Laser cutting"
+                        }
+                    ]
+                },
+                {
+                    "category": "Electronics, Circuit Design & PCB Design/Manufacturing",
+                    "technologies": []
+                },
+                {
+                    "category": "Field Recording",
+                    "technologies": []
+                },
+                {
+                    "category": "Media Archive Management & Preservation",
+                    "technologies": [],
+                    "description": "Collaboratively manages the Experimental Music Yearbook, the wulf., and Mark Trayle archives, encompassing digital media and physical artifacts."
+                },
+                {
+                    "category": "Website & Server Administration",
+                    "technologies": [],
+                    "description": "Ongoing management of multiple websites and their servers."
                 }
             ]
         }
