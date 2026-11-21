@@ -98,4 +98,15 @@ ul.section-group-list.current {
     ul.columns {
         columns: 1;
     }
+
+     .header-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .header-contact .contact-separator {
+        display: none;
+    }
 }

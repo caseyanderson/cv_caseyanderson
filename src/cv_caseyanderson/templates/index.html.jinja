@@ -12,11 +12,18 @@
     <body>
         <header class="cv-header">
             <h1>{{ profile.name }}</h1>
-            <p>
-                {{ profile.location }} ·
-                <a href="{{ profile.website }}" target="_blank" rel="noopener">{{ profile.website }}</a> ·
-                <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+            <p class="header-contact">
+                <span>{{ profile.location }}</span>
+                <span class="contact-separator" aria-hidden="true">·</span>
+                <span>
+                    <a href="{{ profile.website }}" target="_blank" rel="noopener">{{ profile.website }}</a>
+                </span>
+                <span class="contact-separator" aria-hidden="true">·</span>
+                <span>
+                    <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+                </span>
             </p>
+
         </header>
         {% for section in sections if section.id not in ["selected-projects-production", "technology"] %}
         <div id="{{ section.id }}">
