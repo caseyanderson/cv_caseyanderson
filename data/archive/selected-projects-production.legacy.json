@@ -1,0 +1,44 @@
+{
+    "id": "selected-projects-production",
+    "title": "Selected Projects & Production",
+    "groups": [
+        {
+            "title": null,
+            "classes": [
+                "nobullets"
+            ],
+            "entries": [
+                {
+                    "type": "boxed",
+                    "label": "In My Room: Live Electronic Ensemble Music by Mark Trayle",
+                    "details": "Performer, Producer, The Hub and Bitpanic, CD / Download, Artifact Recordings, Fall 2021"
+                },
+                {
+                    "type": "boxed",
+                    "label": "Alison O'Daniel's SKATERS' SCORE",
+                    "details": "Technology Designer, Lincoln Heights Skatepark, Los Angeles CA, Spring 2019"
+                },
+                {
+                    "type": "boxed",
+                    "label": "Compose LA x the wulf.: Liam Mooney's Flatland (w/ Los Angeles Department of Cultural Affairs)",
+                    "details": "Curator, Producer, Coaxial Arts, Los Angeles CA, Spring 2019"
+                },
+                {
+                    "type": "boxed",
+                    "label": "3 Below: The Basement",
+                    "details": "Technology Designer, PUMP 2017, Long Beach CA, Fall 2017"
+                },
+                {
+                    "type": "boxed",
+                    "label": "James Tenney's Changes: 64 Studies for Six Harps",
+                    "details": "Technology Design, Archival Recovery, Score Completion, Typesetting, Smith Publications & New World Records, 2010 - 2017"
+                },
+                {
+                    "type": "boxed",
+                    "label": "David Tudor's Rainforest IV",
+                    "details": "Technology Designer, Neighborhood Church of Pasadena, Pasadena CA & University of California - San Diego, San Diego CA, Summer 2016"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Selected Design & Production",
+  "type": "object",
+  "required": ["id", "title", "entries"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"const": "selected-projects-production"},
+    "title": {"type": "string"},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/entry"}
+    }
+  },
+  "$defs": {
+    "nonempty_string_list": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string"}
+    },
+    "collaborators": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "organization": {
+      "type": "object",
+      "required": ["name", "roles"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string"},
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "venue", "presenter", "organizer", "curator", "producer",
+              "awarding_body", "residency_host", "publisher", "commissioner"
+            ]
+          }
+        }
+      }
+    },
+    "organizations": {
+      "type": "object",
+      "required": ["primary", "additional"],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {"$ref": "#/$defs/organization"},
+        "additional": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/organization"}
+        }
+      }
+    },
+    "part_of": {
+      "type": "object",
+      "required": ["title"],
+      "additionalProperties": false,
+      "properties": {
+        "title": {"type": "string"},
+        "collaborators": {"$ref": "#/$defs/collaborators"}
+      }
+    },
+    "contribution": {
+      "type": "object",
+      "required": ["contributor", "role"],
+      "additionalProperties": false,
+      "properties": {
+        "contributor": {"type": "string"},
+        "role": {"$ref": "#/$defs/nonempty_string_list"},
+        "description": {"type": "string"},
+        "ensemble": {"type": "string"}
+      }
+    },
+    "date": {
+      "type": "object",
+      "required": ["kind", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"const": "date"},
+        "value": {"$ref": "urn:cv-caseyanderson:schema:date-component"}
+      }
+    },
+    "dates": {
+      "type": "object",
+      "required": ["kind", "values"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"const": "dates"},
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "urn:cv-caseyanderson:schema:date-component"}
+        }
+      }
+    },
+    "time": {
+      "oneOf": [
+        {"$ref": "#/$defs/date"},
+        {"$ref": "#/$defs/dates"},
+        {"$ref": "urn:cv-caseyanderson:schema:interval"}
+      ]
+    },
+    "entry": {
+      "type": "object",
+      "required": ["title", "role", "contributions", "time"],
+      "additionalProperties": false,
+      "properties": {
+        "title": {"type": "string"},
+        "composer": {"type": "string"},
+        "director": {"type": "string"},
+        "speaker": {"type": "string"},
+        "record_label": {"type": "string"},
+        "location": {"type": "string"},
+        "url": {"type": "string", "format": "uri"},
+        "role": {"$ref": "#/$defs/nonempty_string_list"},
+        "artists": {"$ref": "#/$defs/nonempty_string_list"},
+        "collaborators": {"$ref": "#/$defs/collaborators"},
+        "contributions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/contribution"}
+        },
+        "time": {"$ref": "#/$defs/time"},
+        "organizations": {"$ref": "#/$defs/organizations"},
+        "part_of": {"$ref": "#/$defs/part_of"}
+      }
+    }
+  }
+}

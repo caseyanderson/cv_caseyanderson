@@ -1810,7 +1810,9 @@
                     "time": {
                         "kind": "date",
                         "value": {
-                            "year": 2022
+                            "year": 2022,
+                            "month": 3,
+                            "day": 8
                         }
                     }
                 },
@@ -2009,45 +2011,313 @@
         },
         {
             "id": "selected-projects-production",
-            "title": "Selected Projects & Production",
-            "groups": [
+            "title": "Selected Design & Production",
+            "entries": [
                 {
-                    "title": null,
-                    "classes": [
-                        "nobullets"
+                    "title": "In My Room: Live Electronic Ensemble Music by Mark Trayle",
+                    "artists": [
+                        "The Hub",
+                        "Bitpanic"
                     ],
-                    "entries": [
+                    "composer": "Mark Trayle",
+                    "role": [
+                        "Producer"
+                    ],
+                    "contributions": [
                         {
-                            "type": "boxed",
-                            "label": "In My Room: Live Electronic Ensemble Music by Mark Trayle",
-                            "details": "Performer, Producer, The Hub and Bitpanic, CD / Download, Artifact Recordings, Fall 2021"
+                            "contributor": "Casey Anderson",
+                            "ensemble": "Bitpanic",
+                            "role": [
+                                "Performer",
+                                "Software Developer",
+                                "Instrument Designer"
+                            ]
                         },
                         {
-                            "type": "boxed",
-                            "label": "Alison O'Daniel's SKATERS' SCORE",
-                            "details": "Technology Designer, Lincoln Heights Skatepark, Los Angeles CA, Spring 2019"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "Compose LA x the wulf.: Liam Mooney's Flatland (w/ Los Angeles Department of Cultural Affairs)",
-                            "details": "Curator, Producer, Coaxial Arts, Los Angeles CA, Spring 2019"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "3 Below: The Basement",
-                            "details": "Technology Designer, PUMP 2017, Long Beach CA, Fall 2017"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "James Tenney's Changes: 64 Studies for Six Harps",
-                            "details": "Technology Design, Archival Recovery, Score Completion, Typesetting, Smith Publications & New World Records, 2010 - 2017"
-                        },
-                        {
-                            "type": "boxed",
-                            "label": "David Tudor's Rainforest IV",
-                            "details": "Technology Designer, Neighborhood Church of Pasadena, Pasadena CA & University of California - San Diego, San Diego CA, Summer 2016"
+                            "contributor": "Casey Anderson",
+                            "role": [
+                                "Producer"
+                            ],
+                            "description": "Collaborated on finishing the recording and arranging manufacture of the release, with preparation underway in Fall 2021. Producer is Casey's description of this work, not a verified printed credit."
                         }
+                    ],
+                    "record_label": "Artifact Recordings",
+                    "url": "https://artifactrecordings.bandcamp.com/album/in-my-room-art-3013-2022",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2022,
+                            "month": 3,
+                            "day": 8
+                        }
+                    }
+                },
+                {
+                    "title": "SKATERS’ SCORE",
+                    "director": "Alison O’Daniel",
+                    "composer": "Patrick Shiroishi",
+                    "role": [
+                        "Technology Designer"
+                    ],
+                    "contributions": [
+                        {
+                            "contributor": "Casey Anderson",
+                            "role": [
+                                "Technology Designer"
+                            ],
+                            "description": "Designed the audio electronics."
+                        }
+                    ],
+                    "location": "Los Angeles CA",
+                    "organizations": {
+                        "primary": {
+                            "name": "Lincoln Heights Skatepark",
+                            "roles": [
+                                "venue"
+                            ]
+                        },
+                        "additional": [
+                            {
+                                "name": "JOAN",
+                                "roles": [
+                                    "presenter",
+                                    "commissioner"
+                                ]
+                            }
+                        ]
+                    },
+                    "url": "https://www.joanlosangeles.org/events/alison-odaniel-skaters-score",
+                    "time": {
+                        "kind": "dates",
+                        "values": [
+                            {
+                                "year": 2019,
+                                "month": 5,
+                                "day": 17
+                            },
+                            {
+                                "year": 2019,
+                                "month": 5,
+                                "day": 18
+                            }
+                        ]
+                    }
+                },
+                {
+                    "title": "Flatland",
+                    "composer": "Liam Mooney",
+                    "speaker": "Ackbar Abbas",
+                    "part_of": {
+                        "title": "Compose LA"
+                    },
+                    "role": [
+                        "Curator",
+                        "Producer"
+                    ],
+                    "contributions": [
+                        {
+                            "contributor": "Casey Anderson",
+                            "role": [
+                                "Curator"
+                            ],
+                            "description": "Curated the program as a board member of the wulf."
+                        },
+                        {
+                            "contributor": "Casey Anderson",
+                            "role": [
+                                "Producer"
+                            ],
+                            "description": "Ran on-site production, including operating the space and running the event. Possible performance participation is recalled by Casey but remains unconfirmed."
+                        }
+                    ],
+                    "location": "Los Angeles CA",
+                    "organizations": {
+                        "primary": {
+                            "name": "Coaxial Arts Foundation",
+                            "roles": [
+                                "venue"
+                            ]
+                        },
+                        "additional": [
+                            {
+                                "name": "the wulf.",
+                                "roles": [
+                                    "curator",
+                                    "producer"
+                                ]
+                            }
+                        ]
+                    },
+                    "url": "https://schoolofmusic.ucla.edu/event/future-of-music-in-los-angeles-symposium/",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2019,
+                            "month": 2,
+                            "day": 22
+                        }
+                    }
+                },
+                {
+                    "title": "Changes: 64 Studies for Six Harps",
+                    "composer": "James Tenney",
+                    "role": [
+                        "Data Recovery",
+                        "Score Preparation",
+                        "Typesetting"
+                    ],
+                    "contributions": [
+                        {
+                            "contributor": "Casey Anderson",
+                            "role": [
+                                "Data Recovery",
+                                "Score Preparation",
+                                "Typesetting"
+                            ],
+                            "description": "Collaborated with Mike Winter to recover a majority of the piece’s data. Copied and typeset the incomplete manuscripts, taking primary responsibility for notation and typesetting decisions. Realized notation from recovered data rather than composing missing music. Prepared the score used for both the Smith Publications edition and the performance recorded for New World Records. Exact printed credits in those publications have not been verified."
+                        },
+                        {
+                            "contributor": "Mike Winter",
+                            "role": [
+                                "Data Recovery",
+                                "Software Developer"
+                            ],
+                            "description": "Collaborated on data recovery and designed software converting the transcribed data to rough notation."
+                        },
+                        {
+                            "contributor": "Lauren Pratt",
+                            "role": [
+                                "Project Lead"
+                            ]
+                        },
+                        {
+                            "contributor": "James Tenney",
+                            "role": [
+                                "Composer",
+                                "Software Developer"
+                            ],
+                            "description": "Composed the music and wrote the original software, which was unavailable to the reconstruction team."
+                        }
+                    ],
+                    "time": {
+                        "kind": "interval",
+                        "start": {
+                            "year": 2010
+                        },
+                        "end": {
+                            "year": 2017
+                        }
+                    },
+                    "organizations": {
+                        "primary": {
+                            "name": "Smith Publications",
+                            "roles": [
+                                "publisher"
+                            ]
+                        },
+                        "additional": []
+                    },
+                    "record_label": "New World Records",
+                    "collaborators": [
+                        "Lauren Pratt",
+                        "Mike Winter"
                     ]
+                },
+                {
+                    "title": "Rainforest IV",
+                    "composer": "David Tudor",
+                    "role": [
+                        "Technology Designer"
+                    ],
+                    "contributions": [
+                        {
+                            "contributor": "Casey Anderson",
+                            "role": [
+                                "Technology Designer"
+                            ],
+                            "description": "Solely designed and manufactured the printed circuit boards used to drive sound into resonant objects functioning as speakers for Rainforest IV. This credit does not establish involvement in Carolyn Chen's Other Forests, which appeared on the same program."
+                        }
+                    ],
+                    "location": "San Diego CA",
+                    "organizations": {
+                        "primary": {
+                            "name": "Conrad Prebys Music Center, University of California San Diego",
+                            "roles": [
+                                "venue"
+                            ]
+                        },
+                        "additional": [
+                            {
+                                "name": "Southland Ensemble",
+                                "roles": [
+                                    "producer"
+                                ]
+                            },
+                            {
+                                "name": "Springfest",
+                                "roles": [
+                                    "presenter"
+                                ]
+                            }
+                        ]
+                    },
+                    "url": "https://www.southlandensemble.com/event-archive",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2016,
+                            "month": 4,
+                            "day": 15
+                        }
+                    }
+                },
+                {
+                    "title": "Rainforest IV",
+                    "composer": "David Tudor",
+                    "role": [
+                        "Technology Designer"
+                    ],
+                    "contributions": [
+                        {
+                            "contributor": "Casey Anderson",
+                            "role": [
+                                "Technology Designer"
+                            ],
+                            "description": "Solely designed and manufactured the printed circuit boards used to drive sound into resonant objects functioning as speakers for Rainforest IV. This credit does not establish involvement in Carolyn Chen's Other Forests, which appeared on the same program."
+                        }
+                    ],
+                    "location": "Pasadena CA",
+                    "organizations": {
+                        "primary": {
+                            "name": "Neighborhood Church of Pasadena",
+                            "roles": [
+                                "venue"
+                            ]
+                        },
+                        "additional": [
+                            {
+                                "name": "Southland Ensemble",
+                                "roles": [
+                                    "producer"
+                                ]
+                            },
+                            {
+                                "name": "People Inside Electronics",
+                                "roles": [
+                                    "presenter"
+                                ]
+                            }
+                        ]
+                    },
+                    "url": "https://www.southlandensemble.com/event-archive",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2016,
+                            "month": 4,
+                            "day": 2
+                        }
+                    }
                 }
             ]
         },

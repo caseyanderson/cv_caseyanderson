@@ -10,7 +10,7 @@
 </time>
 {%- endmacro %}
 
-{% macro render_date_component(date, show_day=true) -%}
+{% macro render_date_component(date, show_day=true, show_month=true) -%}
     {%- set month_names = [
         "January",
         "February",
@@ -27,14 +27,14 @@
     ] -%}
 
     <time datetime="{{ date.year }}{% if date.month is defined %}-{{ "%02d" | format(date.month) }}{% endif %}{% if date.day is defined %}-{{ "%02d" | format(date.day) }}{% endif %}">
-        {%- if date.month is defined -%}
+        {%- if show_month and date.month is defined -%}
             {{ month_names[date.month - 1] }}
             {%- if show_day and date.day is defined -%}
                 {{ " " }}{{ date.day }}{{ ", " }}
             {%- else -%}
                 {{ " " }}
             {%- endif -%}
-        {%- elif date.season is defined -%}
+        {%- elif show_month and date.season is defined -%}
             {{ date.season | capitalize }}{{ " " }}
         {%- endif -%}
         {{ date.year -}}
@@ -198,8 +198,53 @@
     {{- ", " }}{{ entry.artists | join(" / ") }}
     {{- ", " }}{{ entry.formats | join(" / ") }}
     {{- ", " }}{{ entry.record_label }}
-    {{- ", " }}{{ render_date_component(entry.time.value) }}
+    {{- ", " }}{{ render_date_component(entry.time.value, show_month=false) }}
     {%- if planned %}){% endif -%}
+{%- endmacro %}
+
+{% macro render_design_production_entry(entry) -%}
+    <span class="boxed">
+        {%- if entry.director is defined -%}
+            {{ entry.director }}{{ "'s " }}
+        {%- elif entry.composer is defined and entry.composer not in entry.title -%}
+            {{ entry.composer }}{{ "'s " }}
+        {%- endif -%}
+        {{ entry.title -}}
+    </span>
+    {%- if entry.collaborators is defined and entry.collaborators -%}
+        {{- " (w/ " }}{{ entry.collaborators | join(", ") }}{{ ")" }}
+    {%- endif -%}
+    {{- ", " }}{{ entry.role | join(", ") }}
+    {%- if entry.part_of is defined -%}
+        {{- ", " }}{{ entry.part_of.title }}
+    {%- endif -%}
+    {%- if entry.organizations is defined -%}
+        {{- ", " }}{{ entry.organizations.primary.name }}
+        {%- for organization in entry.organizations.additional -%}
+            {{- ", " }}{{ organization.name }}
+            {%- if "producer" in organization.roles -%}
+                {{ " (production)" }}
+            {%- elif "presenter" in organization.roles -%}
+                {{ " (presenter)" }}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+    {%- if entry.record_label is defined -%}
+        {{- ", " }}{{ entry.record_label }}
+    {%- endif -%}
+    {%- if entry.location is defined -%}
+        {{- ", " }}{{ entry.location }}
+    {%- endif -%}
+    {{- ", " }}
+    {%- if entry.time.kind == "interval" -%}
+        {{ render_interval(entry.time) }}
+    {%- elif entry.time.kind == "dates" -%}
+        {{ render_dates(entry.time) }}
+    {%- elif entry.record_label is defined -%}
+        {{ render_date_component(entry.time.value, show_month=false) }}
+    {%- else -%}
+        {{ render_date_component(entry.time.value) }}
+    {%- endif -%}
 {%- endmacro %}
 
 {% macro render_entry(entry) -%}
@@ -217,4 +262,3 @@
         {{ entry.text }}
     {%- endif -%}
 {%- endmacro %}
-
