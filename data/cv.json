@@ -973,6 +973,80 @@
                 },
                 {
                     "category": "event",
+                    "title": "David Tudor’s Rainforest IV",
+                    "collaborators": [],
+                    "location": "San Diego CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2016,
+                            "month": 4,
+                            "day": 15
+                        }
+                    },
+                    "organizations": {
+                        "primary": {
+                            "name": "Conrad Prebys Music Center, University of California San Diego",
+                            "roles": [
+                                "venue"
+                            ]
+                        },
+                        "additional": [
+                            {
+                                "name": "Southland Ensemble",
+                                "roles": [
+                                    "producer"
+                                ]
+                            },
+                            {
+                                "name": "Springfest",
+                                "roles": [
+                                    "presenter"
+                                ]
+                            }
+                        ]
+                    },
+                    "event_type": "performance"
+                },
+                {
+                    "category": "event",
+                    "title": "David Tudor’s Rainforest IV",
+                    "collaborators": [],
+                    "location": "Pasadena CA",
+                    "time": {
+                        "kind": "date",
+                        "value": {
+                            "year": 2016,
+                            "month": 4,
+                            "day": 2
+                        }
+                    },
+                    "organizations": {
+                        "primary": {
+                            "name": "Neighborhood Church of Pasadena",
+                            "roles": [
+                                "venue"
+                            ]
+                        },
+                        "additional": [
+                            {
+                                "name": "Southland Ensemble",
+                                "roles": [
+                                    "producer"
+                                ]
+                            },
+                            {
+                                "name": "People Inside Electronics",
+                                "roles": [
+                                    "presenter"
+                                ]
+                            }
+                        ]
+                    },
+                    "event_type": "performance"
+                },
+                {
+                    "category": "event",
                     "title": "Experimental Music Yearbook: Madison Brookshire, Francesco Gagliardi, Paula Matthusen",
                     "collaborators": [],
                     "location": "New York City NY",
@@ -2238,84 +2312,20 @@
                             "description": "Solely designed and manufactured the printed circuit boards used to drive sound into resonant objects functioning as speakers for Rainforest IV. This credit does not establish involvement in Carolyn Chen's Other Forests, which appeared on the same program."
                         }
                     ],
-                    "location": "San Diego CA",
                     "organizations": {
                         "primary": {
-                            "name": "Conrad Prebys Music Center, University of California San Diego",
+                            "name": "Southland Ensemble",
                             "roles": [
-                                "venue"
+                                "producer"
                             ]
                         },
-                        "additional": [
-                            {
-                                "name": "Southland Ensemble",
-                                "roles": [
-                                    "producer"
-                                ]
-                            },
-                            {
-                                "name": "Springfest",
-                                "roles": [
-                                    "presenter"
-                                ]
-                            }
-                        ]
+                        "additional": []
                     },
                     "url": "https://www.southlandensemble.com/event-archive",
                     "time": {
                         "kind": "date",
                         "value": {
-                            "year": 2016,
-                            "month": 4,
-                            "day": 15
-                        }
-                    }
-                },
-                {
-                    "title": "Rainforest IV",
-                    "composer": "David Tudor",
-                    "role": [
-                        "Technology Designer"
-                    ],
-                    "contributions": [
-                        {
-                            "contributor": "Casey Anderson",
-                            "role": [
-                                "Technology Designer"
-                            ],
-                            "description": "Solely designed and manufactured the printed circuit boards used to drive sound into resonant objects functioning as speakers for Rainforest IV. This credit does not establish involvement in Carolyn Chen's Other Forests, which appeared on the same program."
-                        }
-                    ],
-                    "location": "Pasadena CA",
-                    "organizations": {
-                        "primary": {
-                            "name": "Neighborhood Church of Pasadena",
-                            "roles": [
-                                "venue"
-                            ]
-                        },
-                        "additional": [
-                            {
-                                "name": "Southland Ensemble",
-                                "roles": [
-                                    "producer"
-                                ]
-                            },
-                            {
-                                "name": "People Inside Electronics",
-                                "roles": [
-                                    "presenter"
-                                ]
-                            }
-                        ]
-                    },
-                    "url": "https://www.southlandensemble.com/event-archive",
-                    "time": {
-                        "kind": "date",
-                        "value": {
-                            "year": 2016,
-                            "month": 4,
-                            "day": 2
+                            "year": 2016
                         }
                     }
                 }
