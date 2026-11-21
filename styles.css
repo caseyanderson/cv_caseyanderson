@@ -26,7 +26,16 @@ div {
 }
 
 html {
-    font: normal normal normal 12pt/18pt Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.2;
 }
 
 h3,
@@ -72,10 +81,6 @@ ul.section-group-list.current {
     overflow-wrap: anywhere;
 }
 
-.cv-header a {
-    white-space: nowrap;
-}
-
 @media screen and (max-width: 40rem) {
     body {
         margin: 12px;
@@ -95,11 +100,15 @@ ul.section-group-list.current {
         padding-left: 0;
     }
 
+    ul.nobullets > li + li {
+        margin-top: 0.75rem;
+    }
+
+
     ul.columns {
         columns: 1;
     }
-
-     .header-contact {
+    .header-contact {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
