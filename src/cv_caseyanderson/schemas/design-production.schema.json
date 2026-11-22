@@ -83,17 +83,7 @@
       }
     },
     "dates": {
-      "type": "object",
-      "required": ["kind", "values"],
-      "additionalProperties": false,
-      "properties": {
-        "kind": {"const": "dates"},
-        "values": {
-          "type": "array",
-          "minItems": 1,
-          "items": {"$ref": "urn:cv-caseyanderson:schema:date-component"}
-        }
-      }
+      "$ref": "urn:cv-caseyanderson:schema:dates"
     },
     "time": {
       "oneOf": [
