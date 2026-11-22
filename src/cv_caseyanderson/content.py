@@ -239,6 +239,9 @@ def _validate_cv(
 
             technology_section = section
 
+        else:
+            raise ValueError(f"Unknown CV section ID: {section_id!r}")
+
     if education_section is None:
         raise ValueError("CV must contain an Education section")
 

@@ -4,11 +4,15 @@
   "type": "object",
   "required": [
     "id",
+    "title",
     "entries"
   ],
   "properties": {
     "id": {
       "const": "education"
+    },
+    "title": {
+      "type": "string"
     },
     "entries": {
       "type": "array",

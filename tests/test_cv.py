@@ -73,6 +73,67 @@ class TestCVValidation(unittest.TestCase):
                     _validate_cv(candidate)
 
 
+class TestCVValidationBoundaries(unittest.TestCase):
+    def setUp(self):
+        self.cv = load_cv(CV_PATH)
+
+    def test_unknown_section_is_rejected(self):
+        candidate = copy.deepcopy(self.cv)
+        candidate["sections"].append({
+            "id": "unknown-section",
+            "title": "Unknown Section",
+            "entries": [],
+        })
+
+        with self.assertRaisesRegex(ValueError, "Unknown CV section"):
+            _validate_cv(candidate)
+
+    def test_missing_section_id_is_rejected(self):
+        candidate = copy.deepcopy(self.cv)
+        del candidate["sections"][0]["id"]
+
+        with self.assertRaisesRegex(ValueError, "Unknown CV section"):
+            _validate_cv(candidate)
+
+    def test_non_string_section_ids_are_rejected(self):
+        for section_id in (None, 123, False, [], {}):
+            with self.subTest(section_id=section_id):
+                candidate = copy.deepcopy(self.cv)
+                candidate["sections"][0]["id"] = section_id
+
+                with self.assertRaisesRegex(ValueError, "Unknown CV section"):
+                    _validate_cv(candidate)
+
+    def test_missing_section_titles_are_rejected(self):
+        for index, section in enumerate(self.cv["sections"]):
+            with self.subTest(section=section["id"]):
+                candidate = copy.deepcopy(self.cv)
+                del candidate["sections"][index]["title"]
+
+                with self.assertRaisesRegex(ValueError, "title"):
+                    _validate_cv(candidate)
+
+    def test_non_string_section_titles_are_rejected(self):
+        for index, section in enumerate(self.cv["sections"]):
+            for title in (None, 123, False, [], {}):
+                with self.subTest(section=section["id"], title=title):
+                    candidate = copy.deepcopy(self.cv)
+                    candidate["sections"][index]["title"] = title
+
+                    with self.assertRaisesRegex(ValueError, "title"):
+                        _validate_cv(candidate)
+
+    def test_custom_string_section_titles_are_allowed(self):
+        candidate = copy.deepcopy(self.cv)
+        for section in candidate["sections"]:
+            section["title"] = f"Selected {section['title']}"
+
+        original = copy.deepcopy(candidate)
+        _validate_cv(candidate)
+
+        self.assertEqual(candidate, original)
+
+
 class TestDateRendering(unittest.TestCase):
     def test_existing_date_formats(self):
         cases = [
