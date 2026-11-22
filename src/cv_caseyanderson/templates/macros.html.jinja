@@ -26,15 +26,19 @@
         "December"
     ] -%}
 
-    <time datetime="{{ date.year }}{% if date.month is defined %}-{{ "%02d" | format(date.month) }}{% endif %}{% if date.day is defined %}-{{ "%02d" | format(date.day) }}{% endif %}">
-        {%- if show_month and date.month is defined -%}
+    {%- set has_month = date.month is defined and date.month is not none -%}
+    {%- set has_day = date.day is defined and date.day is not none -%}
+    {%- set has_season = date.season is defined and date.season is not none -%}
+
+    <time datetime="{{ date.year }}{% if has_month %}-{{ "%02d" | format(date.month) }}{% endif %}{% if has_day %}-{{ "%02d" | format(date.day) }}{% endif %}">
+        {%- if show_month and has_month -%}
             {{ month_names[date.month - 1] }}
-            {%- if show_day and date.day is defined -%}
+            {%- if show_day and has_day -%}
                 {{ " " }}{{ date.day }}{{ ", " }}
             {%- else -%}
                 {{ " " }}
             {%- endif -%}
-        {%- elif show_month and date.season is defined -%}
+        {%- elif show_month and has_season -%}
             {{ date.season | capitalize }}{{ " " }}
         {%- endif -%}
         {{ date.year -}}
