@@ -60,10 +60,6 @@ time {
     font-style: italic;
 }
 
-ul.columns {
-    columns: 2;
-}
-
 ul.nobullets {
     list-style-type: none;
 }
@@ -104,10 +100,6 @@ ul.section-group-list.current {
         margin-top: 0.75rem;
     }
 
-
-    ul.columns {
-        columns: 1;
-    }
     .header-contact {
         display: flex;
         flex-direction: column;
