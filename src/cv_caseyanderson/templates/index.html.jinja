@@ -141,20 +141,6 @@
                     </li>
                     {% endfor %}
                 </ul>
-            {% else %}
-                {% for group in section.groups %}
-                    {% if group.title %}
-                    <h3>{{ group.title }}</h3>
-                    {% endif %}
-
-                    <ul class="{{ group.classes | join(' ') }}{% if group.title %} section-group-list{% endif %}">
-                        {% for entry in group.entries %}
-                        <li>
-                            {{- cv.render_entry(entry) -}}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                {% endfor %}
             {% endif %}
         </div>
         {% endfor %}

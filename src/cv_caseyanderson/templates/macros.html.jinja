@@ -261,19 +261,3 @@
         {%- endfor -%}
     {%- endif -%}
 {%- endmacro %}
-
-{% macro render_entry(entry) -%}
-    {%- if entry.type == "boxed" -%}
-        {{ entry.prefix | default("") -}}
-        <span class="boxed">{{ entry.label }}</span>
-        {%- if entry.details %}, {{ entry.details }}{% endif -%}
-        {{ entry.suffix | default("") }}
-    {%- elif entry.type == "link" -%}
-        <a href="{{ entry.url }}" target="_blank" rel="noopener">
-            {{- entry.label -}}
-        </a>
-        {%- if entry.details %} {{ entry.details }}{% endif %}
-    {%- elif entry.type == "plain" -%}
-        {{ entry.text }}
-    {%- endif -%}
-{%- endmacro %}
