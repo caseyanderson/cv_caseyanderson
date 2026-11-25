@@ -39,7 +39,7 @@ class TestCVRendering(unittest.TestCase):
 
         self.assertEqual(self.cv, original)
 
-    def test_education_concentration_and_exact_date(self):
+    def test_education_concentration_and_exact_dates(self):
         render_education_entry = (
             create_environment()
             .get_template("macros.html.jinja")
@@ -55,6 +55,11 @@ class TestCVRendering(unittest.TestCase):
             for entry in education["entries"]
             if entry["institution"] == "California Institute of the Arts"
         )
+        uwec = next(
+            entry
+            for entry in education["entries"]
+            if entry["institution"] == "University of Wisconsin - Eau Claire"
+        )
         fallback = copy.deepcopy(calarts)
         del fallback["concentration"]
 
@@ -66,6 +71,14 @@ class TestCVRendering(unittest.TestCase):
         self.assertEqual(
             calarts["time"]["value"],
             {"year": 2009, "month": 5, "day": 15},
+        )
+        self.assertEqual(
+            uwec["major"],
+            ["Music Composition", "Philosophy"],
+        )
+        self.assertEqual(
+            uwec["time"]["value"],
+            {"year": 2007, "month": 5, "day": 19},
         )
 
         for entry, expected_label in (
@@ -90,6 +103,22 @@ class TestCVRendering(unittest.TestCase):
                     "".join(time_element.itertext()).strip(),
                     "2009",
                 )
+
+        uwec_element = ElementTree.fromstring(
+            f"<div>{render_education_entry(uwec)}</div>"
+        )
+        self.assertEqual(
+            uwec_element.find("span").text,
+            "BM in Music Composition, Philosophy",
+        )
+        self.assertEqual(
+            uwec_element.find("time").attrib["datetime"],
+            "2007",
+        )
+        self.assertEqual(
+            "".join(uwec_element.find("time").itertext()).strip(),
+            "2007",
+        )
 
 
 class TestCVValidation(unittest.TestCase):
