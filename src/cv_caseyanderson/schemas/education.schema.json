@@ -37,6 +37,9 @@
               "type": "string"
             }
           },
+          "concentration": {
+            "type": "string"
+          },
           "institution": {
             "type": "string"
           },

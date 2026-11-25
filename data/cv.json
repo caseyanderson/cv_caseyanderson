@@ -7,14 +7,17 @@
                 {
                     "degree": "MFA",
                     "major": [
-                        "Experimental Sound Practices"
+                        "Music Composition"
                     ],
+                    "concentration": "Experimental Sound Practices",
                     "institution": "California Institute of the Arts",
                     "location": "Valencia CA",
                     "time": {
                         "kind": "date",
                         "value": {
-                            "year": 2009
+                            "year": 2009,
+                            "month": 5,
+                            "day": 15
                         }
                     }
                 },

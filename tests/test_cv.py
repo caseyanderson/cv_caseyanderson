@@ -39,6 +39,58 @@ class TestCVRendering(unittest.TestCase):
 
         self.assertEqual(self.cv, original)
 
+    def test_education_concentration_and_exact_date(self):
+        render_education_entry = (
+            create_environment()
+            .get_template("macros.html.jinja")
+            .module.render_education_entry
+        )
+        education = next(
+            section
+            for section in self.cv["sections"]
+            if section["id"] == "education"
+        )
+        calarts = next(
+            entry
+            for entry in education["entries"]
+            if entry["institution"] == "California Institute of the Arts"
+        )
+        fallback = copy.deepcopy(calarts)
+        del fallback["concentration"]
+
+        self.assertEqual(calarts["major"], ["Music Composition"])
+        self.assertEqual(
+            calarts["concentration"],
+            "Experimental Sound Practices",
+        )
+        self.assertEqual(
+            calarts["time"]["value"],
+            {"year": 2009, "month": 5, "day": 15},
+        )
+
+        for entry, expected_label in (
+            (calarts, "MFA in Experimental Sound Practices"),
+            (fallback, "MFA in Music Composition"),
+        ):
+            with self.subTest(label=expected_label):
+                element = ElementTree.fromstring(
+                    f"<div>{render_education_entry(entry)}</div>"
+                )
+                time_element = element.find("time")
+
+                self.assertEqual(
+                    element.find("span").text,
+                    expected_label,
+                )
+                self.assertEqual(
+                    time_element.attrib["datetime"],
+                    "2009",
+                )
+                self.assertEqual(
+                    "".join(time_element.itertext()).strip(),
+                    "2009",
+                )
+
 
 class TestCVValidation(unittest.TestCase):
     def setUp(self):
