@@ -42,19 +42,7 @@
             "type": "string"
           },
           "time": {
-            "type": "object",
-            "required": [
-              "kind",
-              "value"
-            ],
-            "properties": {
-              "kind": {
-                "const": "date"
-              },
-              "value": {
-                "$ref": "urn:cv-caseyanderson:schema:date-component"
-              }
-            }
+            "$ref": "urn:cv-caseyanderson:schema:single-date"
           },
           "status": {
             "const": "planned"

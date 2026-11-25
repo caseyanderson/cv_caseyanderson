@@ -57,7 +57,12 @@ def _validate_section_schema(
         json.loads((schema_directory / schema_filename).read_text(encoding="utf-8")),
     )
     registry = Registry[Schema]()
-    for shared_filename in ("date-component.schema.json", "interval.schema.json", "dates.schema.json"):
+    for shared_filename in (
+        "date-component.schema.json",
+        "interval.schema.json",
+        "dates.schema.json",
+        "single-date.schema.json",
+    ):
         shared_schema = cast(
             dict[str, object],
             json.loads(

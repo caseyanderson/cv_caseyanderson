@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:cv-caseyanderson:schema:single-date",
+  "title": "CV single date",
+  "type": "object",
+  "required": [
+    "kind",
+    "value"
+  ],
+  "properties": {
+    "kind": {
+      "const": "date"
+    },
+    "value": {
+      "$ref": "urn:cv-caseyanderson:schema:date-component"
+    }
+  }
+}
